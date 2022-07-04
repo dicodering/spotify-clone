@@ -1,0 +1,250 @@
+/* 공통속성 */
+body {
+    background-color: rgb(37, 37, 37);
+}
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+}
+
+/* > 상단 고정 */
+.navbar-fixed-top {
+    position: fixed;
+    /* padding: 5px; */
+    padding: 10px 40px;
+}
+/* > 왼쪽 고정 메뉴 */
+.sidebar {
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    padding-top: 5px;
+}
+/* > 로고 */
+.logo a {
+    display: block;
+    margin-top: 4px;
+    color: rgb(93, 216, 104);
+    margin-bottom: 20px;
+}
+/* > 각 메뉴 영역 */
+#navlink {
+    padding: 15px 10px;
+    display: block;
+}
+#navlink:hover {
+    background-color:rgb(37, 37, 37);
+    border-radius: 5px;
+}
+hr {
+    border-top: 1px solid rgb(37, 37, 37);
+}
+
+
+/* 텍스트 칼라 : 화이트 */
+.white-text {
+    color: white;
+}
+
+/*** 상단고정 ***/
+/* 고정시키기 */
+.navbar-fixed-top{
+    position: fixed;
+    padding: 5px 30px;
+}
+/* 왼 */
+.prevbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+/* 오 */
+.nextbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+}
+/* 프리미엄&이름 공통적용 */
+.navbar-nav>li {
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.navbar-nav>li>a {
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+/* 프리미엄 */
+.premium{
+    background-color: rgb(211, 42, 0);
+    color: white;
+}
+.premium:hover {
+    color: rgb(211, 42, 0);
+}
+/* 내정보 이름 */
+.name {
+    background-color: black;
+    color: white;
+}
+.name:hover {
+    color: black;
+}
+
+
+
+/* 프리미엄 & 프로필 */
+.pre-pro {
+    width: 190px;
+}
+/* > 프리미엄 */
+.premium {
+    float: left;
+}
+.premium a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background-color: tomato;
+    border-radius: 18px;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+/* > 프로필 */
+.profile {
+    float: left;
+}
+.profile a {
+    display: block;
+    width: 80px;
+    height: 35px;
+    background-color: black;
+    border-radius: 18px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+
+
+/* 메인 content */
+.main_content {
+    /* padding-top: 60px; */
+    padding: 60px;
+}
+
+/* > 제목 */
+.page-header {
+    color: white;
+    font-size: 28px;
+    border: 0;
+}
+
+
+/* 모달창 */
+.modal-content {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    padding: 10px;
+    width: 450px;
+    margin: auto;
+}
+.modal-title {
+    font-size: 25px;
+}
+/* > 닫기 버튼 */
+#close {
+    color: white;
+}
+/* > 플레이리스트 버튼 */
+#playbtn {
+    text-align: left;
+    font-size: 18px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
+    background-color: rgb(56, 56, 56);
+}
+#playbtn:hover {
+    background-color: rgb(22, 21, 21, 1);
+    opacity: 100;
+    color: white;
+}
+
+/* > 플레이리스트 만들기 버튼 */
+.plist-make {
+    background-color:rgb(93, 216, 104);
+    color: white;
+    margin-bottom: 20px;
+}
+.plist-make:hover, .btn-grey:hover  {
+    color:rgb(19, 19, 19);
+}
+
+/* > 생성된 플레이리스트 개별 버튼 */
+.btn-grey {
+    background-color: rgb(109, 109, 109);
+    color: white;
+}
+
+/* > 플레이리스트 취소하기 버튼 */
+.btn-cancel {
+    background-color: rgb(56, 56, 56);
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+/* > 플레이리스트 만들기 버튼 */
+.btn-make {
+    background-color: rgb(22, 21, 21, 1);
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+.btn-cancel:hover, .btn-make:hover {
+    color:rgb(93, 216, 104);
+}
+
+
+/* > 플레이리스트 존 */
+.plist-zone {
+    margin-top: 30px;
+}
+table {
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 30px;
+}
+/* > 곡 > 리스트 */
+table thead {
+    color:rgb(151, 151, 151);
+    border-bottom: 1px solid rgb(151, 151, 151);
+}
+#th, #td {
+    border: none;
+}
+/* > 곡 > 추가 버튼 */
+.remove-btn {
+    background-color: rgb(93, 216, 104);
+    border-radius: 3px;
+    border: 0;
+    padding: 0 8px;
+}

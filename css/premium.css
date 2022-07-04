@@ -1,0 +1,431 @@
+/* 공통속성 */
+body {
+    background-color: rgb(37, 37, 37);
+}
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+}
+
+/* > 상단 고정 */
+.navbar-fixed-top {
+    position: fixed;
+    /* padding: 5px; */
+    padding: 10px 40px;
+}
+/* > 왼쪽 고정 메뉴 */
+.sidebar {
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    padding-top: 5px;
+}
+/* > 로고 */
+.logo a {
+    display: block;
+    margin-top: 4px;
+    color: rgb(93, 216, 104);
+    margin-bottom: 20px;
+}
+/* > 각 메뉴 영역 */
+#navlink {
+    padding: 15px 10px;
+    display: block;
+}
+#navlink:hover {
+    background-color:rgb(37, 37, 37);
+    border-radius: 5px;
+}
+hr {
+    border-top: 1px solid rgb(37, 37, 37);
+}
+
+
+/* 텍스트 칼라 : 화이트 */
+.white-text {
+    color: white;
+}
+
+/*** 상단고정 ***/
+/* 고정시키기 */
+.navbar-fixed-top{
+    position: fixed;
+    padding: 5px 30px;
+}
+/* 왼 */
+.prevbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+/* 오 */
+.nextbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+}
+/* 프리미엄&이름 공통적용 */
+.navbar-nav>li {
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.navbar-nav>li>a {
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+/* 프리미엄 */
+.premium{
+    background-color: rgb(211, 42, 0);
+    color: white;
+}
+.premium:hover {
+    color: rgb(211, 42, 0);
+}
+/* 내정보 이름 */
+.name {
+    background-color: black;
+    color: white;
+}
+.name:hover {
+    color: black;
+}
+
+
+
+/* 프리미엄 & 프로필 */
+.pre-pro {
+    width: 190px;
+}
+/* > 프리미엄 */
+.premium {
+    float: left;
+}
+.premium a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background-color: tomato;
+    border-radius: 18px;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+/* > 프로필 */
+.profile {
+    float: left;
+}
+.profile a {
+    display: block;
+    width: 80px;
+    height: 35px;
+    background-color: black;
+    border-radius: 18px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+
+
+/* 메인 content */
+.main_content {
+    /* padding-top: 60px; */
+    padding: 60px;
+}
+
+
+/* 프리미엄 본문 */
+/* > 제목 */
+.page-box {
+    color: white;
+    font-size: 35px;
+    border: 0;
+    border-bottom: 1px solid white;
+}
+/* > 본문 텍스트 */
+.page-text-h2, .page-text-h3 {
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+.page-text h2 {
+    color: rgb(93, 216, 104);
+    line-height: 1.3;
+    font-weight: 600;
+}
+.page-text h3 {
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* > 요금제 버튼 */
+.btn-charge {
+    background-color: #000;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 50px;
+    border: 2px solid white;
+    font-size: 14px;
+}
+#btn-charge {
+    margin-bottom: 40px;
+}
+.btn-charge:hover {
+    color: rgb(93, 216, 104);
+    border: 2px solid rgb(93, 216, 104);
+}
+
+/* 요금제 선택하기 */
+.choice-charge {
+    margin-top: 30px;
+    width: 800px;
+    margin: auto;
+}
+/* > 상단 텍스트 */
+.choice-charge .title-text {
+    margin-top: 50px;
+    color: white;
+    text-align: center; 
+}
+.choice-charge .title-text h2{
+    font-size: 30px;
+    line-height: 1.5;
+}
+.choice-charge .title-text p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+/* > 내부 */
+.charge {
+    background-color: white;
+    border-radius: 15px;
+    width: 540px;
+    margin: 40px auto 0 auto;
+    padding: 30px;
+    height: 470px;
+    box-shadow: 2px 2px 30px rgb(78, 78, 78);
+}
+/* > 내부 - 상단 텍스트 */
+.charge .sub-text {
+    margin-top: 10px;
+    line-height: 1.4;
+}
+.sub-text h3 {
+    font-size: 25px;
+    font-weight: 600;
+}
+.sub-text p {
+    font-size: 16px;
+} 
+/* > 내부 - 하단 텍스트 */
+.sub-box li {
+    font-size: 20px;
+    line-height: 2;
+}
+.sub-box li p {
+    display: inline-block;
+}
+
+/* > 내부 - 버튼 */
+.start-btn, .cancel-btn {
+    width: 150px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    background-color: #000;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 0;
+    margin-top: 25px;
+}
+.start-btn:hover,
+.cancel-btn:hover {
+    color: rgb(93, 216, 104);
+}
+
+/* 요금제 소개 */
+.pay-main .page-header {
+    border: 0;
+}
+.mycharge h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    color: white;
+    width: 500px;
+    text-align: left;
+    margin: 0 auto 10px;
+}
+.charge-box {
+    background-color: #2a2a72;
+    background-image: linear-gradient(150deg, #2a2a72 0%, #009ffd 74%);
+    color: white;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    width: 500px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 2px 2px 15px rgb(48, 48, 48);
+    padding: 20px;
+}
+.charge-box .c-b-1 h4 {
+    font-size: 20px;
+}
+.charge-box .c-b-2 {
+    padding-bottom: 10px;
+}
+.charge-box .small p  {
+    font-size: 15px;
+    line-height: 2;
+    font-weight: 600;
+}
+.c-b-3 p {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* 지불 */
+#payment {
+    width: 500px;
+    margin: auto;
+    border-radius: 15px;
+}
+.payment-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+/* 1. 신용카드 */
+/* > 카드 번호 */
+.card-num p, .card-date p, .card-security p {
+    font-size: 16px;
+    line-height: 2.2;
+    font-weight: 500;
+}
+.card-box {
+    width: 500px;
+    margin: auto;
+}
+.col-xs-3 {
+    padding: 0;
+    width: 22.6%;
+    margin-right: 5px;
+}
+/* > 라디오 버튼 */
+.card-radio {
+    margin: 20px 0;
+}
+/* > 구매하기 버튼 */
+.btn-premium-box {
+    width: 350px;
+    margin: 25px auto;
+}
+.btn-premium {
+    width: 350px;
+    border-radius: 30px;
+    background-color: rgb(93, 216, 104);
+    padding: 10px 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* 2.카카오페이 */
+.kakao-box {
+    background-color: rgb(235, 235, 235);
+    width: 430px;
+    margin: 30px auto;
+}
+.kakao-cont {
+    width: 250px;
+    margin: 10px auto;
+}
+.kakao-cont img {
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+.kakao-cont p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 3;
+}
+.btn-kakao {
+    width: 150px;
+    border-radius: 30px;
+    background-color: rgb(93, 216, 104);
+    padding: 10px 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+/* 취소 */
+#cancel {
+    width: 500px;
+    margin: auto;
+}
+.cancel-txt {
+    font-size: 16px;
+    margin: 10px 0 15px 0;
+}
+/* > 취소버튼 */
+.btn-cancel {
+
+}
+/* > 모달 안내창 */
+.info-modal {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    padding: 10px;
+    width: 500px;
+    margin: auto;
+}
+/* > 닫기 버튼 */
+#close {
+    color: white;
+}
+.modal-title {
+    font-size: 25px;
+}
+.info-modal-txt {
+    line-height: 2;
+}
+/* > 해지 취소하기 버튼 */
+.bye-cancel {
+    background-color: rgb(56, 56, 56);
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+/* > 해지하기 버튼 */
+.bye-spotify {
+    background-color: rgb(22, 21, 21, 1);
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+.bye-cancel:hover, .bye-spotify:hover {
+    color:rgb(93, 216, 104);
+}

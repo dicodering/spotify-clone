@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- bootstrap 추가 -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+  />
+  <!-- style.css & reset.css -->
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+
+  <!-- 파비콘  -->
+  <link rel="icon" href="icon/SpotifyIcon_Black.png" />
+
+  <!-- 왼쪽 고정 메뉴바 js -->
+  <script src="includeHTML.js"></script>
+
+  <title>Spotify</title>
+</head>
+<body>
+  <!-- 메뉴바의 색상 테마 지정 -->
+  <div class="navbar navbar-fixed-top">
+    <!-- 메뉴의 영역 -->
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <div class="navbar-header">
+        <!-- 모바일 해상도에서만 표시되는 햄버거 버튼 -->
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- 상단 고정 메뉴바 -->
+      <div class="nav-bar-collapse col-md-10 col-md-offset-2">
+        <!-- 프리미엄, 프로필 -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="premium.html" class="premium">PREMIUM</a></li>
+          <li><a href="profile.html" class="name">💚NAME</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--왼쪽 고정 메뉴바 -->
+  <div include-html="menubar.html"></div>
+  <script>includeHTML();</script>
+  
+    <!-- 메인페이지 content -->
+    <div class="main_content col-md-10 col-md-offset-2">
+       <div class="login_content">
+        <img src="icon/SpotifyIcon_White.png" alt="" style="width: 40px" /><span id="spotify">Spotify</span>
+        <h2 class="logtitle">계속하려면 로그인 하세요.</h2>
+        <form name="join_form" id="join_form">
+            <div class="input-group">
+              <div class="input-group-addon glyphicon glyphicon-user"></div>
+              <input type="text" class="form-control" id="user_id" name="user_id" placeholder="이메일 또는 사용자 이름">
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon glyphicon glyphicon-lock"></div>
+              <input type="password" class="form-control" id="user_pw" name="user_pw" placeholder="비밀번호">
+            </div>
+            <button type="submit" class="btn btn-block">로그인하기</button>
+        </form>
+        <!-- 가입하기 -->
+        <div class="log_join">
+          <span>계정이 없나요?<a href="signup.html" class="signin">가입하기</a></span>
+        </div>
+       </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="regex_helper.js"></script>
+    <script type="text/javascript">
+        document.querySelector("#join_form").addEventListener("submit", e => {
+            e.preventDefault();
+
+            const regexHelper = new RegexHelper();
+
+            /** 아이디 검사 */
+            if (!regexHelper.value('#user_id', '이메일 또는 사용자 이름을 입력하세요.')) { return false; }
+            if (!regexHelper.min_length('#user_id', 4, '아이디는 최소 4자 이상 입력 가능합니다.')) { return false; }
+            if (!regexHelper.max_length('#user_id', 20, '아이디는 최대 20자 까지만 입력 가능합니다.')) { return false; }
+            if (!regexHelper.eng_num('#user_id', '아이디는 영어와 숫자 조합만 입력 가능합니다.')) { return false; }
+
+            /** 비밀번호 검사 */
+            if (!regexHelper.value('#user_pw', '비밀번호를 입력하세요.')) { return false; }
+            if (!regexHelper.min_length('#user_pw', 4, '비밀번호는 최소 4자 이상 입력 가능합니다.')) { return false; }
+            if (!regexHelper.max_length('#user_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
+            if (!regexHelper.compare_to('#user_pw', '#user_pw_re', '비밀번호 확인이 잘못되었습니다.')) { return false; }
+
+
+            // 처리 완료
+            alert("입력형식 검사 완료~!!!");
+        });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

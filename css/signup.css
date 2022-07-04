@@ -1,0 +1,223 @@
+/* 공통속성 */
+body {
+    background-color: rgb(37, 37, 37);
+}
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+}
+
+/* > 상단 고정 */
+.navbar-fixed-top {
+    position: fixed;
+    /* padding: 5px; */
+    padding: 10px 40px;
+}
+/* > 왼쪽 고정 메뉴 */
+.sidebar {
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    padding-top: 5px;
+}
+/* > 로고 */
+.logo a {
+    display: block;
+    margin-top: 4px;
+    color: rgb(93, 216, 104);
+    margin-bottom: 20px;
+}
+/* > 각 메뉴 영역 */
+#navlink {
+    padding: 15px 10px;
+    display: block;
+}
+#navlink:hover {
+    background-color:rgb(37, 37, 37);
+    border-radius: 5px;
+}
+hr {
+    border-top: 1px solid rgb(37, 37, 37);
+}
+
+/* 텍스트 칼라 : 화이트 */
+.white-text {
+    color: white;
+}
+
+/*** 상단고정 ***/
+/* 고정시키기 */
+.navbar-fixed-top{
+    position: fixed;
+    padding: 5px 30px;
+}
+/* 왼 */
+.prevbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+/* 오 */
+.nextbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+}
+/* 프리미엄&이름 공통적용 */
+.navbar-nav>li {
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.navbar-nav>li>a {
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+/* 프리미엄 */
+.premium{
+    background-color: rgb(211, 42, 0);
+    color: white;
+}
+.premium:hover {
+    color: rgb(211, 42, 0);
+}
+/* 내정보 이름 */
+.name {
+    background-color: black;
+    color: white;
+}
+.name:hover {
+    color: black;
+}
+
+
+
+/* 프리미엄 & 프로필 */
+.pre-pro {
+    width: 190px;
+}
+/* > 프리미엄 */
+.premium {
+    float: left;
+}
+.premium a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background-color: tomato;
+    border-radius: 18px;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+/* > 프로필 */
+.profile {
+    float: left;
+}
+.profile a {
+    display: block;
+    width: 80px;
+    height: 35px;
+    background-color: black;
+    border-radius: 18px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+
+
+
+
+/*** 메인 content ***/
+.main_content {
+    padding-top: 150px;
+}
+.sign_content {
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    width: 400px;
+    margin: auto;
+}
+.sign_content img {
+    padding-bottom: 5px;
+    margin: 5px;
+}
+
+/* 가입 타이틀  */
+#spotify{
+    vertical-align: 20px;
+}
+.titlezone {
+    text-align: center;
+}
+.signtitle {
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 가입 폼 */
+.input-group {
+    padding-bottom: 10px;
+}
+.glyphicon {
+    top: 0;
+}
+.form-control {
+    height: 50px;
+}
+
+/* 폼제목 */ 
+.labels {
+    color: gray;
+    font-weight: normal;
+    font-size: 1.5ch;
+    padding-bottom: 8px;
+}
+
+/* 가입 버튼 */
+.btn-success {
+    margin-top: 30px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 30px;
+}
+
+/* 게정이 있다고요? */ 
+.sign_join {
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 15px;
+    color: gray;
+}
+
+.login {
+    padding-left: 5px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.863);
+}
+.login:hover {
+    color: rgba(255, 255, 255, 0.863);
+}

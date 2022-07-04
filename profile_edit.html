@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- bootstrap 추가 -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+  />
+  <!-- style.css & reset.css -->
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+
+  <!-- 파비콘  -->
+  <link rel="icon" href="icon/SpotifyIcon_Black.png" />
+
+  <!-- 왼쪽 고정 메뉴바 js -->
+  <script src="includeHTML.js"></script>
+
+  <title>Spotify</title>
+</head>
+<body>
+  <!-- 메뉴바의 색상 테마 지정 -->
+  <div class="navbar navbar-fixed-top">
+    <!-- 메뉴의 영역 -->
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <div class="navbar-header">
+        <!-- 모바일 해상도에서만 표시되는 햄버거 버튼 -->
+        <button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- 상단 고정 메뉴바 -->
+      <div class="nav-bar-collapse col-md-10 col-md-offset-2">
+        <!-- 프리미엄, 프로필 -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="premium.html" class="premium">PREMIUM</a></li>
+          <li><a href="profile.html" class="name">💚NAME</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <!--왼쪽 고정 메뉴바 -->
+    <div include-html="menubar.html"></div>
+    <script>includeHTML();</script>
+  
+    <!-- 메인페이지 content -->
+    <div class="main_content col-md-10 col-md-offset-2">
+        <h1>프로필</h1>
+        <div class="form-group">
+            <!-- 이름 -->
+            <label for="pro_name" class="col-sm-2 control-label">사용자 이름</label>
+            <div class="col-sm-10">
+                <input type="text" name="pro_name" id="pro_name" class="form-control" value="" />
+            </div>
+        </div>
+        <!-- 이메일 -->
+        <div class="form-group">
+            <!-- .constrol-tabel은 label태그에 들어가는 속성이다. -->
+            <label for="pro_email" class="col-sm-2 control-label">이메일</label>
+            <div class="col-sm-10">
+                <input type="email" name="pro_email" id="pro_email" class="form-control" value="" />
+            </div>
+        </div>
+
+        <!-- 비밀번호 -->
+        <div class="form-group">
+            <!-- .constrol-tabel은 label태그에 들어가는 속성이다. -->
+            <label for="pro-pw" class="col-sm-2 control-label">비밀번호</label>
+            <div class="col-sm-10">
+                <input type="password" name="pro-pw" id="pro-pw" class="form-control" value=""/>
+            </div>
+        </div>
+
+        <!-- 생년월일 -->
+        <div class="form-group">
+            <!-- .constrol-tabel은 label태그에 들어가는 속성이다. -->
+            <label for="pro_birth" class="col-sm-2 control-label">생년월일</label>
+            <div class="col-sm-10">
+                <input type="date" name="pro_birth" id="pro_birth" class="form-control" value=""/>
+            </div>
+        </div>
+
+        <!-- 성별 -->
+        <div class="form-group">
+            <label for="pro-gender" class="col-sm-2 control-label">성별</label>
+            <div class="col-sm-10 form-inline">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="myradio" id="female" value="" checked />
+                        여성
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="myradio" id="male" value="" />
+                        남성
+                    </label>
+                </div>
+                <!-- 사용 못하게 막으려면 .disabled -->
+                <div class="radio">
+                    <label>
+                        <!-- 사용 못하게 막으려면 .disabled -->
+                        <input type="radio" name="myradio" id="non" value="">
+                        논바이너리
+                    </label>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="from-group col-md-offset-2 col-md-10 cancelbtn">
+            <button type="submit" class="btn btn-success">취소하기</button>
+
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#saveModal">프로필 저장</button>
+        </div>
+    </div>
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

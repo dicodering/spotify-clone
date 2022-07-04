@@ -1,0 +1,186 @@
+/* 공통속성 */
+body {
+    background-color: rgb(37, 37, 37);
+}
+.pull-left {
+    float: left;
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    float: none;
+    clear: both;
+}
+
+/* > 상단 고정 */
+.navbar-fixed-top {
+    position: fixed;
+    /* padding: 5px; */
+    padding: 10px 40px;
+}
+/* > 왼쪽 고정 메뉴 */
+.sidebar {
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    padding-top: 5px;
+}
+/* > 로고 */
+.logo a {
+    display: block;
+    margin-top: 4px;
+    color: rgb(93, 216, 104);
+    margin-bottom: 20px;
+}
+/* > 각 메뉴 영역 */
+#navlink {
+    padding: 15px 10px;
+    display: block;
+}
+#navlink:hover {
+    background-color:rgb(37, 37, 37);
+    border-radius: 5px;
+}
+hr {
+    border-top: 1px solid rgb(37, 37, 37);
+}
+
+
+/* 텍스트 칼라 : 화이트 */
+.white-text {
+    color: white;
+}
+
+/*** 상단고정 ***/
+/* 고정시키기 */
+.navbar-fixed-top{
+    position: fixed;
+    padding: 5px 30px;
+}
+/* 왼 */
+.prevbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+/* 오 */
+.nextbtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-style: none;
+    margin-top: 7px;
+}
+/* 프리미엄&이름 공통적용 */
+.navbar-nav>li {
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.navbar-nav>li>a {
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+/* 프리미엄 */
+.premium{
+    background-color: rgb(211, 42, 0);
+    color: white;
+}
+.premium:hover {
+    color: rgb(211, 42, 0);
+}
+/* 내정보 이름 */
+.name {
+    background-color: black;
+    color: white;
+}
+.name:hover {
+    color: black;
+}
+
+/* 프리미엄 & 프로필 */
+.pre-pro {
+    width: 190px;
+}
+/* > 프리미엄 */
+.premium {
+    float: left;
+}
+.premium a {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background-color: tomato;
+    border-radius: 18px;
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+/* > 프로필 */
+.profile {
+    float: left;
+}
+.profile a {
+    display: block;
+    width: 80px;
+    height: 35px;
+    background-color: black;
+    border-radius: 18px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2;
+    text-decoration: none;
+}
+
+
+
+/*** 메인 content ***/
+.main_content {
+    padding-top: 80px;
+    padding-left: 50px;
+}
+/* 가입 폼 */
+.form-group {
+    padding-top: 50px;
+}
+.form-control {
+    height: 50px;
+}
+
+/* 폼제목 */ 
+.main_content h1 {
+    font-size: 40px;
+    color: white;
+    padding-bottom: 20px;
+
+}
+.main_content a {
+    padding-bottom: 20px;
+
+}
+/* 라벨 제목 */
+label {
+    font-size: 20px;
+    color: gray;
+}
+
+
+/* profile_edit.html  (button) */
+.cancelbtn {
+    padding-left: 60px;
+    padding-top: 40px;
+}
+.btn {
+    margin-right: 10px;
+    font-size: 15px;
+}
