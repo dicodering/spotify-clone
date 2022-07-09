@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="css/login.css" />
   <link rel="stylesheet" href="css/reset.css" />
 
+  <!-- 폰트어썸 CDN 5.15.4 -->
+  <script src="https://kit.fontawesome.com/4e6349bb03.js" crossorigin="anonymous"></script>
+  
   <!-- 파비콘  -->
   <link rel="icon" href="icon/SpotifyIcon_Black.png" />
 
@@ -65,21 +68,30 @@
         <img src="icon/SpotifyIcon_White.png" alt="" style="width: 40px" /><span id="spotify">Spotify</span>
         <h2 class="logtitle">계속하려면 로그인 하세요.</h2>
         <form name="join_form" id="join_form">
-            <div class="input-group">
-              <div class="input-group-addon glyphicon glyphicon-user"></div>
-              <input type="text" class="form-control" id="user_id" name="user_id" placeholder="이메일 또는 사용자 이름">
+
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="sizing-addon1" aria-hidden="true">
+                <i class="fas fa-user"></i>
+              </span>
+              <input type="text" class="form-control" id="user_id" name="user_id" aria-describedby="basic-addon1" placeholder="이메일 또는 사용자 이름">
             </div>
-            <div class="input-group">
-              <div class="input-group-addon glyphicon glyphicon-lock"></div>
+
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="sizing-addon1" aria-hidden="true">
+                <i class="fas fa-lock"></i>
+              </span>
               <input type="password" class="form-control" id="user_pw" name="user_pw" placeholder="비밀번호">
             </div>
-            <button type="submit" class="btn btn-block">로그인하기</button>
+
+            <button type="submit" class="btn btn-block" id="loginbtn">로그인하기</button>
         </form>
+
         <!-- 가입하기 -->
         <div class="log_join">
           <span>계정이 없나요?<a href="signup.html" class="signin">가입하기</a></span>
         </div>
        </div>
+      
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -92,17 +104,14 @@
 
             const regexHelper = new RegexHelper();
 
-            /** 아이디 검사 */
-            if (!regexHelper.value('#user_id', '이메일 또는 사용자 이름을 입력하세요.')) { return false; }
-            if (!regexHelper.min_length('#user_id', 4, '아이디는 최소 4자 이상 입력 가능합니다.')) { return false; }
-            if (!regexHelper.max_length('#user_id', 20, '아이디는 최대 20자 까지만 입력 가능합니다.')) { return false; }
-            if (!regexHelper.eng_num('#user_id', '아이디는 영어와 숫자 조합만 입력 가능합니다.')) { return false; }
+            /** 이메일 검사 */
+            if (!regexHelper.value('#user_id', '이메일을 입력하세요.')) { return false; }
+            if (!regexHelper.email('#user_id', '이메일 주소를 다시 확인해주세요.')) { return false; }
 
             /** 비밀번호 검사 */
             if (!regexHelper.value('#user_pw', '비밀번호를 입력하세요.')) { return false; }
-            if (!regexHelper.min_length('#user_pw', 4, '비밀번호는 최소 4자 이상 입력 가능합니다.')) { return false; }
+            if (!regexHelper.min_length('#user_pw', 8, '비밀번호는 최소 8자 이상 입력 가능합니다.')) { return false; }
             if (!regexHelper.max_length('#user_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
-            if (!regexHelper.compare_to('#user_pw', '#user_pw_re', '비밀번호 확인이 잘못되었습니다.')) { return false; }
 
 
             // 처리 완료

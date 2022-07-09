@@ -58,23 +58,7 @@ hr {
     position: fixed;
     padding: 5px 30px;
 }
-/* 왼 */
-.prevbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-    margin-right: 5px;
-}
-/* 오 */
-.nextbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-}
+
 /* 프리미엄&이름 공통적용 */
 .navbar-nav>li {
     margin-left: 5px;
@@ -196,6 +180,7 @@ hr {
     color: white;
     margin-bottom: 20px;
 }
+
 .plist-make:hover, .btn-grey:hover  {
     color:rgb(19, 19, 19);
 }
@@ -204,6 +189,10 @@ hr {
 .btn-grey {
     background-color: rgb(109, 109, 109);
     color: white;
+    margin-right: 10px;
+}
+.btn-grey:last-child {
+    margin-right: 0;
 }
 
 /* > 플레이리스트 취소하기 버튼 */
@@ -247,4 +236,8 @@ table thead {
     border-radius: 3px;
     border: 0;
     padding: 0 8px;
+}
+
+.plist-box {
+    margin-top: 20px;
 }

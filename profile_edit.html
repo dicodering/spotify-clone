@@ -60,8 +60,11 @@
     <script>includeHTML();</script>
   
     <!-- 메인페이지 content -->
-    <div class="main_content col-md-10 col-md-offset-2">
+    <div class="main-content col-md-10 col-md-offset-2">
+      <!-- 추가 -->
+      <div class="form-box">
         <h1>프로필</h1>
+          
         <div class="form-group">
             <!-- 이름 -->
             <label for="pro_name" class="col-sm-2 control-label">사용자 이름</label>
@@ -112,22 +115,17 @@
                         남성
                     </label>
                 </div>
-                <!-- 사용 못하게 막으려면 .disabled -->
-                <div class="radio">
-                    <label>
-                        <!-- 사용 못하게 막으려면 .disabled -->
-                        <input type="radio" name="myradio" id="non" value="">
-                        논바이너리
-                    </label>
-                </div>
               </div>
             </div>
         </div>
-        <div class="from-group col-md-offset-2 col-md-10 cancelbtn">
-            <button type="submit" class="btn btn-success">취소하기</button>
 
-            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#saveModal">프로필 저장</button>
+
+        <!-- 버튼 -->
+        <div id="cancelbtn">
+          <button type="submit" class="btn btn-success">취소하기</button>
+          <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#saveModal">프로필 저장</button>
         </div>
+      </div>
     </div>
       
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

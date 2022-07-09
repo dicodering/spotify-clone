@@ -15,8 +15,15 @@
   <!-- style.css & reset.css -->
   <link rel="stylesheet" href="css/signup.css" />
   <link rel="stylesheet" href="css/reset.css" />
+
+  <!-- 폰트어썸 CDN 5.15.4 -->
+  <script src="https://kit.fontawesome.com/4e6349bb03.js" crossorigin="anonymous"></script>
+
   <!-- 파비콘  -->
   <link rel="icon" href="icon/SpotifyIcon_Black.png" />
+
+  <!-- 왼쪽 고정 메뉴바 js -->
+  <script src="includeHTML.js"></script>
 
   <title>Spotify</title>
 </head>
@@ -51,32 +58,11 @@
     </div>
   </div>
 
-  <!--왼쪽 고정 메뉴바 -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 sidebar text-primary">
-        <ul class="nav nav-sidebar sidenav">
-          <li style="padding-top: 5px" class="logo clearfix">
-            <img src="icon/SpotifyIcon_Green.png" class="pull-left"style="width: 25px; margin: 10px" alt=""/>
-            <a href="#" class="pull-left">SPOTIFY</a>
-          </li>
-          <li><a href="mainpage.html" id="navlink">🏠 <span class="white-text">홈</span></a></li>
-          <li><a href="search_artist.html" id="navlink">🔍 <span class="white-text">검색하기</span></a></li>
-        </ul>
-        <hr />
-        <ul class="nav nav-sidebar sidenav">
-          <li><a href="playlist.html" id="navlink">🧺 <span class="white-text">플레이리스트</span></a></li>
-        </ul>
-        <hr />
-        <ul class="nav nav-sidebar sidenav">
-          <li><a href="login.html" id="navlink">🔑 <span class="white-text">로그인/로그아웃</span></a></li>
-          <li><a href="signup.html" id="navlink">🎁 <span class="white-text">회원가입</span></a></li>
-          <li><a href="profile.html" id="navlink">👤 <span class="white-text">계정</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
+
+    <!--왼쪽 고정 메뉴바 -->
+    <div include-html="menubar.html"></div>
+    <script>includeHTML();</script>
+
     <!-- 메인페이지 content -->
     <div class="main_content col-md-10 col-md-offset-2">
       <div class="sign_content">
@@ -85,68 +71,69 @@
           <h2 class="signtitle">무료 Spotify 계정에 가입하세요</h2>
         </div>
         <form name="join_form" id="join_form">
-          <div class="input-group">
-            <div class="input-group-addon glyphicon glyphicon-envelope"></div>
-            <input
-              type="text"
-              class="form-control"
-              id="user_id"
-              name="user_id"
-              placeholder="이메일"
-            />
+          <!-- 이메일 -->
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1" aria-hidden="true">
+              <i class="fas fa-user"></i>
+            </span>
+            <input type="email" class="form-control" id="user_id" name="user_id" placeholder="이메일"/>
           </div>
-          <div class="input-group">
-            <div class="input-group-addon glyphicon glyphicon-lock"></div>
-            <input
-              type="text"
-              class="form-control"
-              id="user_pw"
-              name="user_pw"
-              placeholder="비밀번호 만들기"
-            />
+          <!-- 비번 -->
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1" aria-hidden="true">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input type="password" class="form-control" id="user_pw" name="user_pw" placeholder="비밀번호 만들기"/>
           </div>
-          <div class="input-group">
-            <div class="input-group-addon glyphicon glyphicon-user"></div>
-            <input
-              type="text"
-              class="form-control"
-              id="user_name"
-              name="user_name"
-              placeholder="사용자 이름"
-            />
+          <!-- 사용자 이름 -->
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1" aria-hidden="true">
+              <i class="fas fa-user"></i>
+            </span>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="사용자 이름"/>
           </div>
   
           <!-- 생년월일 -->
           <div class="form-group">
             <label for="user_birth" class="labels">생년월일이 언제인가요?</label>
-            <input
-              type="date"
-              class="form-control"
-              id="user_birth"
-              name="user_birth"
-            />
+            <div class="birth">
+                <!-- 년도 -->
+                <input type="text" name="yy" id="yy" class="form-control input-group-lg" placeholder="년(4자)"/>
+                <!-- 월 -->
+                <select id="mm" name="mm" class="form-control" aria-label="월">
+                    <option id="mm" value="N" selected>월</option>
+                    <option id="mm">1</option>
+                    <option id="mm">2</option>
+                    <option id="mm">3</option>
+                    <option id="mm">4</option>
+                    <option id="mm">5</option>
+                    <option id="mm">6</option>
+                    <option id="mm">7</option>
+                    <option id="mm">8</option>
+                    <option id="mm">9</option>
+                    <option id="mm">10</option>
+                    <option id="mm">11</option>
+                    <option id="mm">12</option>
+                </select>
+  
+                <!-- 일 -->
+                <input type="text" name="dd" id="dd" class="form-control" placeholder="일"/>
+            </div>
           </div>
+                 
           <!-- 성별 라디오 -->
           <div class="form-group">
             <label for="user_birth" class="labels">성별이 무엇인가요?</label>
             <div class="radio">
-              <label class="labels">
+              <label class="labels-title">
                 <input type="radio" name="myradio" id="female" value="" checked />
                 여성
               </label>
             </div>
             <div class="radio">
-              <label class="labels">
+              <label class="labels-title">
                 <input type="radio" name="myradio" id="male" value="" />
                 남성
-              </label>
-            </div>
-            <!-- 사용 못하게 막으려면 .disabled -->
-            <div class="radio">
-              <label class="labels">
-                <!-- 사용 못하게 막으려면 .disabled -->
-                <input type="radio" name="myradio" id="non" value="" />
-                논바이너리
               </label>
             </div>
           </div>
@@ -175,37 +162,25 @@
 
             const regexHelper = new RegexHelper();
 
-            /** 아이디 검사 */
-            if (!regexHelper.value('#user_id', '아이디를 입력하세요.')) { return false; }
-            if (!regexHelper.min_length('#user_id', 4, '아이디는 최소 4자 이상 입력 가능합니다.')) { return false; }
-            if (!regexHelper.max_length('#user_id', 20, '아이디는 최대 20자 까지만 입력 가능합니다.')) { return false; }
-            if (!regexHelper.eng_num('#user_id', '아이디는 영어와 숫자 조합만 입력 가능합니다.')) { return false; }
+            /** 이메일 검사 */
+            if (!regexHelper.value('#user_id', '이메일을 입력하세요.')) { return false; }
+            if (!regexHelper.email('#user_id', '이메일 주소를 다시 확인해주세요.')) { return false; }
 
             /** 비밀번호 검사 */
             if (!regexHelper.value('#user_pw', '비밀번호를 입력하세요.')) { return false; }
-            if (!regexHelper.min_length('#user_pw', 4, '비밀번호는 최소 4자 이상 입력 가능합니다.')) { return false; }
+            if (!regexHelper.min_length('#user_pw', 8, '비밀번호는 최소 8자 이상 입력 가능합니다.')) { return false; }
             if (!regexHelper.max_length('#user_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
-            if (!regexHelper.compare_to('#user_pw', '#user_pw_re', '비밀번호 확인이 잘못되었습니다.')) { return false; }
 
             /** 이름 검사 */
             if (!regexHelper.value('#user_name', '이름을 입력하세요.')) { return false; }
             if (!regexHelper.min_length('#user_name', 2, '이름은 최소 2자 이상 입력 가능합니다.')) { return false; }
             if (!regexHelper.max_length('#user_name', 20, '이름은 최대 20자 까지만 입력 가능합니다.')) { return false; }
-            if (!regexHelper.kor_num('#user_name', '이름은 한글만 입력 가능합니다.')) { return false; }
 
             /** 생년월일 검사 */
-            if (!regexHelper.num('#user_birth', '날짜를 정확하게 선택하세요.')) { return false; }
-            
-            /** 성별 검사 */
-            if (!regexHelper.field('#gender', '성별을 선택하세요.')) { return false; }
-
-            /** 이메일 검사 */
-            if (!regexHelper.email('#email1', '이메일을 입력하세요.')) { return false; }
-            if (!regexHelper.email('#email1', '이메일 주소가 잘못되었습니다.')) { return false; }
-
-            /** 연락처 검사 */
-            if (!regexHelper.cellphone('#tel2', '연락처를 입력하세요.')) { return false; }
-            if (!regexHelper.telphone('#tel2', '연락처가 잘못되었습니다.')) { return false; }
+            if (!regexHelper.value('#yy', '태어난 년도 4자리를 정확하게 입력하세요.')){ return false; }
+            if (!regexHelper.check('select[name=mm] option:checked', '태어난 월을 선택하세요.')) { return false; }
+            if (!regexHelper.value('#dd', '태어난 일(날짜)를 정확하게 입력하세요.')){ return false; }
+            if (!regexHelper.max_length('#dd', 2, '태어난 일(날짜)를 정확하게 입력하세요.')) { return false; }
 
             // 처리 완료
             alert("입력형식 검사 완료~!!!");

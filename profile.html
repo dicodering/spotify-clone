@@ -58,11 +58,16 @@
     <!--왼쪽 고정 메뉴바 -->
     <div include-html="menubar.html"></div>
     <script>includeHTML();</script>
+
+
   
     <!-- 메인페이지 content -->
-    <div class="main_content col-md-10 col-md-offset-2">
+    <div class="main-content col-md-10 col-md-offset-2">
+      <!-- 추가 -->
+      <div class="form-box">
         <h1>프로필</h1>
         <span><a href="profile_edit.html">프로필편집</a></span>
+          
         <div class="form-group">
             <!-- 이름 -->
             <label for="pro_name" class="col-sm-2 control-label">사용자 이름</label>
@@ -113,17 +118,10 @@
                         남성
                     </label>
                 </div>
-                <!-- 사용 못하게 막으려면 .disabled -->
-                <div class="radio">
-                    <label>
-                        <!-- 사용 못하게 막으려면 .disabled -->
-                        <input type="radio" name="myradio" id="non" value="">
-                        논바이너리
-                    </label>
-                </div>
               </div>
             </div>
         </div>
+      </div>
     </div>
       
 

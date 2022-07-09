@@ -192,7 +192,16 @@ hr {
     font-weight: normal;
     font-size: 1.5ch;
     padding-bottom: 8px;
+    margin-top: 10px;
 }
+
+.labels-title {
+    color: gray;
+    font-weight: normal;
+    font-size: 1.5ch;
+    padding-bottom: 8px;
+}
+
 
 /* 가입 버튼 */
 .btn-success {
@@ -221,3 +230,43 @@ hr {
 .login:hover {
     color: rgba(255, 255, 255, 0.863);
 }
+
+/* sign타이틀 */
+.signtitle {
+    margin-bottom: 10px;
+}
+
+/* input & select 아웃라인 없애기 */
+input:focus { outline: none; }
+select:focus { outline: none; }
+/* 왼쪽 정렬 */
+.pull-left { float: left; }
+.clearfix {
+    content: "";
+    display: block;
+    clear: both;
+    float: none;
+}
+
+.birth {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.birth input {
+    width: 40%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: 50px;
+}
+.birth input:last-child {
+    margin-right: 0;
+}
+.birth select {
+    width: 40%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    height: 50px;
+}
+

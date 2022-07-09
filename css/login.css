@@ -160,6 +160,10 @@ hr {
 }
 
 /* 로그인 타이틀  */
+.logtitle {
+    margin-bottom: 10px;
+}
+
 /* 가입 타이틀  */
 #spotify{
     vertical-align: 20px;
