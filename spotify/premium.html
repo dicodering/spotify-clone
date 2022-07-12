@@ -14,7 +14,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
     />
     <!-- style.css & reset.css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styleMain.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/premium.css" />
 
@@ -27,35 +27,6 @@
     <title>Spotify</title>
   </head>
   <body>
-    <!-- 메뉴바의 색상 테마 지정 -->
-    <div class="navbar navbar-fixed-top">
-      <!-- 메뉴의 영역 -->
-      <div class="container-fluid">
-        <!-- 로고 -->
-        <div class="navbar-header">
-          <!-- 모바일 해상도에서만 표시되는 햄버거 버튼 -->
-          <button
-            type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-          >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-        <!-- 상단 고정 메뉴바 -->
-        <div class="nav-bar-collapse col-md-10 col-md-offset-2">
-          <!-- 프리미엄, 프로필 -->
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="premium.html" class="premium">PREMIUM</a></li>
-            <li><a href="profile.html" class="name">💚NAME</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
     <!--왼쪽 고정 메뉴바 -->
     <div include-html="menubar.html"></div>
@@ -67,7 +38,7 @@
         <div class="page-header page-box">
           <!-- 텍스트 -->
           <div class="page-text">
-            <div class="page-text-h2">
+            <div id="page-text-h2">
               <h2>다양한 해외 히트곡과</h2>
               <h2>국내 인기 음악을</h2>
               <h2>들어보세요</h2>

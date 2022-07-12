@@ -13,7 +13,8 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
   />
   <!-- style.css & reset.css -->
-  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/styleMain.css" />
+  <link rel="stylesheet" href="css/signup.css" />
   <link rel="stylesheet" href="css/reset.css" />
 
   <!-- 폰트어썸 CDN 5.15.4 -->
@@ -28,35 +29,6 @@
   <title>Spotify</title>
 </head>
 <body>
-  <!-- 메뉴바의 색상 테마 지정 -->
-  <div class="navbar navbar-fixed-top">
-    <!-- 메뉴의 영역 -->
-    <div class="container-fluid">
-      <!-- 로고 -->
-      <div class="navbar-header">
-        <!-- 모바일 해상도에서만 표시되는 햄버거 버튼 -->
-        <button
-          type="button"
-          class="navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#navbar"
-        >
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- 상단 고정 메뉴바 -->
-      <div class="nav-bar-collapse col-md-10 col-md-offset-2">
-        <!-- 프리미엄, 프로필 -->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="premium.html" class="premium">PREMIUM</a></li>
-          <li><a href="profile.html" class="name">💚NAME</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
 
   <!--왼쪽 고정 메뉴바 -->
   <div include-html="menubar.html"></div>
@@ -64,9 +36,12 @@
   
     <!-- 메인페이지 content -->
     <div class="main_content col-md-10 col-md-offset-2">
-       <div class="login_content">
-        <img src="icon/SpotifyIcon_White.png" alt="" style="width: 40px" /><span id="spotify">Spotify</span>
-        <h2 class="logtitle">계속하려면 로그인 하세요.</h2>
+       <div class="sign_content">
+        <div class="titlezone">
+          <img src="icon/SpotifyIcon_White.png" alt="" style="width: 40px;" /><span id="spotify">Spotify</span>
+          <h2 class="logtitle">계속하려면 로그인 하세요.</h2>
+        </div>
+
         <form name="join_form" id="join_form">
 
             <div class="input-group input-group-lg">

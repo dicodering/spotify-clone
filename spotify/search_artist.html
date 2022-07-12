@@ -14,86 +14,82 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
     />
     <!-- style.css & reset.css -->
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/styleMain.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/search.css" />
+
     <!-- 파비콘  -->
     <link rel="icon" href="icon/SpotifyIcon_Black.png" />
+
+    <!-- 폰트어썸 CDN 5.15.4 -->
+    <script src="https://kit.fontawesome.com/4e6349bb03.js" crossorigin="anonymous"></script>
+
 
     <title>Spotify</title>
   </head>
   <body>
-    <!-- 메뉴바의 색상 테마 지정 -->
-    <div class="navbar navbar-fixed-top">
-      <!-- 메뉴의 영역 -->
-      <div class="container-fluid">
-        <!-- 로고 -->
-        <div class="navbar-header">
-          <!-- 모바일 해상도에서만 표시되는 햄버거 버튼 -->
-          <button
-            type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#navbar"
-          >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-        <!-- 상단 고정 메뉴바 -->
-        <div class="nav-bar-collapse col-md-10 col-md-offset-2">
-          <!-- 프리미엄, 프로필 -->
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="premium.html" class="premium">PREMIUM</a></li>
-            <li><a href="profile.html" class="name">💚NAME</a></li>
-          </ul>
-
-          <!-- 검색하기 버튼 -->
-          <form class="navbar-form navbar-left btn-bar">
-            <div class="form-group">
-              <input id="query" type="text" class="search-type" placeholder="Search">
-            </div>
-            <button type="submit" id="searchBtn" class="btn btn-submit"><a href="#">Submit</a></button>
-          </form>
-
-          <!-- 히든토큰 (value값에 저장해두는 것) -->
-          <!-- 쉽게 꺼내 쓰기 위해서(Html에 보일 필요 없음) -->
-          <!-- 쉽게 말하면, 자바스크립트에서 쉽게 꺼내 쓰려고 변수를 생성한 것 -->
-         <input id="hidden_token" type="hidden"></input>
-        </div>
-      </div>
-    </div>
 
     <!--왼쪽 고정 메뉴바 -->
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <div class="row">
-        <div class="col-md-2 sidebar text-primary">
-          <ul class="nav nav-sidebar sidenav">
-            <li style="padding-top: 5px" class="logo clearfix">
-              <img src="icon/SpotifyIcon_Green.png" class="pull-left"style="width: 25px; margin: 10px" alt=""/>
-              <a href="#" class="pull-left">SPOTIFY</a>
+        <div class="sidebar col-md-2"> <!-- .text-primary .col-md-2 -->
+          <!-- 상단메뉴 -->
+          <ul id="fix" style="padding-top: 5px" class="nav nav-sidebar sidenav logo clearfix" >
+            <li>
+              <div>
+                <img src="icon/SpotifyIcon_Green.png" style="width: 30px; margin-right: 10px;" alt=""/>
+                <span>SPOTIFY</span>
+              </div>
+              <a id="toggle">
+                <i class="fas fa-bars"></i>
+              </a>
             </li>
-            <li><a href="index.html" id="navlink">🏠 <span class="white-text">홈</span></a></li>
-            <li><a href="search_artist.html" id="navlink">🔍 <span class="white-text">검색하기</span></a></li>
           </ul>
-          <hr />
-          <ul class="nav nav-sidebar sidenav">
-            <li><a href="playlist.html" id="navlink">🧺 <span class="white-text">플레이리스트</span></a></li>
-          </ul>
-          <hr />
-          <ul class="nav nav-sidebar sidenav">
-            <li><a href="login.html" id="navlink">🔑 <span class="white-text">로그인/로그아웃</span></a></li>
-            <li><a href="signup.html" id="navlink">🎁 <span class="white-text">회원가입</span></a></li>
-            <li><a href="profile.html" id="navlink">👤 <span class="white-text">계정</span></a></li>
-          </ul>
+          <!-- 오픈 메뉴 -->
+          <div class="menuopen">
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="index.html" id="navlink">🏠  <span class="white-text">홈</span></a></li>
+              <li><a href="search_artist.html" id="navlink">🔍  <span class="white-text">검색하기</span></a></li>
+            </ul>
+            <hr />
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="playlist.html" id="navlink">🧺  <span class="white-text">플레이리스트</span></a></li>
+            </ul>
+            <hr />
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="login.html" id="navlink">🔑  <span class="white-text">로그인/로그아웃</span></a></li>
+              <li><a href="signup.html" id="navlink">🎁  <span class="white-text">회원가입</span></a></li>
+              <li><a href="profile.html" id="navlink">👤  <span class="white-text">계정</span></a></li>
+              <li><a href="premium.html" id="navlink">💳  <span class="white-text">프리미엄</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
+
+
 
     <!-- 메인페이지 content -->
     <div class="main_content col-md-10 col-md-offset-2">
+
+      <!-- 상단 고정 메뉴바 -->
+      <div class="nav-bar-collapse navSearch">
+        <!-- 검색하기 버튼 -->
+        <form class="navbar-form navbar-left btn-bar">
+          <div class="form-group">
+            <input id="query" type="text" class="search-type" placeholder="Search">
+          </div>
+          <button type="submit" id="searchBtn" class="btn btn-submit"><a href="#">Submit</a></button>
+        </form>
+
+        <!-- 히든토큰 (value값에 저장해두는 것) -->
+        <!-- 쉽게 꺼내 쓰기 위해서(Html에 보일 필요 없음) -->
+        <!-- 쉽게 말하면, 자바스크립트에서 쉽게 꺼내 쓰려고 변수를 생성한 것 -->
+        <input id="hidden_token" type="hidden"></input>
+      </div>
+
+
       <!-- 검색 결과 -->
       <div class="block">
         <h2 class="page-header block common">상위 결과</h2>
@@ -136,5 +132,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <script src="app.js" type="text/javascript"></script>
+
+    <script async src="main.js"></script>
   </body>
 </html>

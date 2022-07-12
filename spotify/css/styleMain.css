@@ -13,19 +13,14 @@ body {
     clear: both;
 }
 
-/* > 상단 고정 */
+/* > 상단 고정 
 .navbar-fixed-top {
     position: fixed;
-    /* padding: 5px; */
+    /* padding: 5px;
     padding: 10px 40px;
-}
-/* > 왼쪽 고정 메뉴 */
-.sidebar {
-    background-color: black;
-    position: fixed;
-    height: 100%;
-    padding-top: 5px;
-}
+/* } */
+
+
 /* > 로고 */
 .logo a {
     display: block;
@@ -58,92 +53,6 @@ hr {
     position: fixed;
     padding: 5px 30px;
 }
-/* 왼 */
-.prevbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-    margin-right: 5px;
-}
-/* 오 */
-.nextbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-}
-/* 프리미엄&이름 공통적용 */
-.navbar-nav>li {
-    margin-left: 5px;
-    margin-top: 7px;
-}
-.navbar-nav>li>a {
-    padding: 8px 15px;
-    font-weight: bold;
-    border-radius: 50px;
-}
-/* 프리미엄 */
-.premium{
-    background-color: rgb(211, 42, 0);
-    color: white;
-}
-.premium:hover {
-    color: rgb(211, 42, 0);
-}
-/* 내정보 이름 */
-.name {
-    background-color: black;
-    color: white;
-}
-.name:hover {
-    color: black;
-}
-
-
-
-/* 프리미엄 & 프로필 */
-.pre-pro {
-    width: 190px;
-}
-/* > 프리미엄 */
-.premium {
-    float: left;
-}
-.premium a {
-    display: block;
-    width: 100px;
-    height: 35px;
-    background-color: tomato;
-    border-radius: 18px;
-    margin-right: 10px;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
-}
-/* > 프로필 */
-.profile {
-    float: left;
-}
-.profile a {
-    display: block;
-    width: 80px;
-    height: 35px;
-    background-color: black;
-    border-radius: 18px;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
-}
-
 
 
 /*** 메인 content ***/
@@ -255,4 +164,121 @@ table thead {
     padding-top: 190px;
     font-size: 28px;
     color: white;
+}
+
+
+
+
+/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+@media (min-width: 320px) {
+    .container-fluid {
+        margin-bottom: 25px;
+    }
+    /* > 왼쪽 고정 메뉴 */
+    .sidebar {
+        background-color: black;
+        /* position: fixed; */
+        /* z-index: 4444; */
+        height: 80px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* 숨어져있는 메뉴 내용 */
+    .menuopen {
+        /* 숨김 */
+        visibility: hidden;
+        background-color: black;
+        padding: 10px;
+        margin: 0;
+    }
+
+    #fix {
+        width: 100%;
+        padding: 5px 15px 0 15px;
+    }
+    #fix li {
+        display: flex;
+        justify-content: space-between;
+    }
+    #fix li div {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        color: rgb(93, 216, 104);
+        font-size: 25px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+    }
+    #fix li a {
+        margin-top: 10px;
+        color: rgb(93, 216, 104);
+        display: flex;
+        align-items: center;
+    }
+    #toggle {
+        visibility: visible;
+        font-size: 25px;
+    }
+    #fix li a:hover {
+        color: black;
+    }
+    /* > 로고 */
+    .logo a {
+        display: block;
+        margin-top: 4px;
+        color: rgb(93, 216, 104);
+        margin-bottom: 20px;
+    }
+    /* > 각 메뉴 영역 */
+    #navlink {
+        padding: 15px 10px;
+        display: block;
+    }
+    #navlink:hover {
+        background-color:rgb(37, 37, 37);
+        border-radius: 5px;
+    }
+    hr {
+        border-top: 1px solid rgb(37, 37, 37);
+    }
+}
+
+
+@media (min-width: 1020px) {
+    .container-fluid {
+        margin-bottom: 25px;
+    }
+    /* > 왼쪽 고정 메뉴 */
+    .sidebar {
+        background-color: black;
+        position: fixed;
+        z-index: 4444;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        width: 15%;
+    }
+
+    /* 숨어져있는 메뉴 내용 */
+    .menuopen {
+        /* 숨김 */
+        visibility: visible;
+        background-color: black;
+        padding: 10px;
+        margin: 0;
+    }
+    #fix li div {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        color: rgb(93, 216, 104);
+        font-size: 20px;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+    }
+    #toggle {
+        visibility: hidden;
+    }
 }

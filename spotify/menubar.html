@@ -16,7 +16,6 @@
     <!-- style.css & reset.css -->
     <link rel="stylesheet" href="css/styleMain.css" />
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/premium.css" />
     <!-- 파비콘  -->
     <link rel="icon" href="icon/SpotifyIcon_Black.png" />
 
@@ -25,34 +24,46 @@
   <body>
     
     <!--왼쪽 고정 메뉴바 -->
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <div class="row">
-        <div class="col-md-2 sidebar text-primary">
-          <ul class="nav nav-sidebar sidenav">
-            <li style="padding-top: 5px" class="logo clearfix">
-              <img src="icon/SpotifyIcon_Green.png" class="pull-left"style="width: 25px; margin: 10px" alt=""/>
-              <a href="#" class="pull-left">SPOTIFY</a>
+        <div class="sidebar col-md-2"> <!-- .text-primary .col-md-2 -->
+          <!-- 상단메뉴 -->
+          <ul id="fix" style="padding-top: 5px" class="nav nav-sidebar sidenav logo clearfix" >
+            <li>
+              <div>
+                <img src="icon/SpotifyIcon_Green.png" style="width: 30px; margin-right: 10px;" alt=""/>
+                <span>SPOTIFY</span>
+              </div>
+              <a id="toggle">
+                <i class="fas fa-bars"></i>
+              </a>
             </li>
-            <li><a href="index.html" id="navlink">🏠 <span class="white-text">홈</span></a></li>
-            <li><a href="search_artist.html" id="navlink">🔍 <span class="white-text">검색하기</span></a></li>
           </ul>
-          <hr />
-          <ul class="nav nav-sidebar sidenav">
-            <li><a href="playlist.html" id="navlink">🧺 <span class="white-text">플레이리스트</span></a></li>
-          </ul>
-          <hr />
-          <ul class="nav nav-sidebar sidenav">
-            <li><a href="login.html" id="navlink">🔑 <span class="white-text">로그인/로그아웃</span></a></li>
-            <li><a href="signup.html" id="navlink">🎁 <span class="white-text">회원가입</span></a></li>
-            <li><a href="profile.html" id="navlink">👤 <span class="white-text">계정</span></a></li>
-          </ul>
+          <!-- 오픈 메뉴 -->
+          <div class="menuopen">
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="index.html" id="navlink">🏠  <span class="white-text">홈</span></a></li>
+              <li><a href="search_artist.html" id="navlink">🔍  <span class="white-text">검색하기</span></a></li>
+            </ul>
+            <hr />
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="playlist.html" id="navlink">🧺  <span class="white-text">플레이리스트</span></a></li>
+            </ul>
+            <hr />
+            <ul class="nav nav-sidebar sidenav">
+              <li><a href="login.html" id="navlink">🔑  <span class="white-text">로그인/로그아웃</span></a></li>
+              <li><a href="signup.html" id="navlink">🎁  <span class="white-text">회원가입</span></a></li>
+              <li><a href="profile.html" id="navlink">👤  <span class="white-text">계정</span></a></li>
+              <li><a href="premium.html" id="navlink">💳  <span class="white-text">프리미엄</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <script async src="main.js"></script>
   </body>
   
 </html>
