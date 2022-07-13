@@ -40,6 +40,7 @@ a:hover {
     display: flex;
     justify-content: flex-start;
 }
+
 /* 검색하기 > input */
 .form-group {
     margin: 0;
@@ -56,6 +57,10 @@ a:hover {
 }
 
 /* 검색하기 > submit버튼 */
+#searchBtn {
+    font-size: 0.8em;
+    font-weight: 500;
+}
 .btn-submit {
     background-color:rgb(37, 37, 37);
     border: 1px solid rgb(185, 185, 185);
@@ -63,12 +68,16 @@ a:hover {
     padding: 10px;
     /* width: 80px; */
     width: 10%;
+    color:rgb(185, 185, 185);
 }
-.btn-submit a {
-    text-decoration: none;
+.btn-submit:hover {
+    background-color: rgb(22, 21, 21);
     color: rgb(185, 185, 185);
 }
-
+/* .btn-submit a {
+    text-decoration: none;
+    color: rgb(185, 185, 185);
+} */
 
 
 /* 메인 content */
@@ -85,6 +94,7 @@ a:hover {
 
 /* > 아티스트 이미지 */
 .artist-img {
+    margin-left: 15px;
     width: 240px;
     text-align: center;
     background-color: rgb(22, 21, 21);
@@ -259,12 +269,12 @@ table .tableartist {
     }
     /* 검색하기 > input */
     .form-group {
-        width: 80%;
+        width: 75%;
     }
-
     /* 검색하기 > submit버튼 */
     .btn-submit {
-        width: 20%;
+        width: 25%;
+        padding: 0;
     }
 }
 

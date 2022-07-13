@@ -140,7 +140,7 @@ body {
     font-size: 30px;
     line-height: 1.5;
     color: white;
-    width: 500px;
+    max-width: 500px;
     text-align: left;
     margin: 0 auto 10px;
 }
@@ -195,25 +195,41 @@ body {
     font-weight: 500;
 }
 .card-box {
-    width: 500px;
+    /* width: 500px; */
     margin: auto;
 }
-.col-xs-3 {
-    padding: 0;
-    width: 22.6%;
+
+#xsbox {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+} 
+
+#xsbox .xs3 {
     margin-right: 5px;
+    width: 23.7%;
+    padding-left: 0;
+    padding-right: 0;
 }
+#xsbox .xs3:last-child {
+    margin-right: 0px;
+}
+
+
 /* > 라디오 버튼 */
 .card-radio {
     margin: 20px 0;
 }
 /* > 구매하기 버튼 */
 .btn-premium-box {
-    width: 350px;
+    /* width: 350px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 25px auto;
 }
 .btn-premium {
-    width: 350px;
+    max-width: 350px;
     border-radius: 30px;
     background-color: rgb(93, 216, 104);
     padding: 10px 0;
@@ -221,12 +237,14 @@ body {
     font-size: 16px;
     font-weight: 500;
     text-align: center;
+    margin:0 auto;
 }
 
 /* 2.카카오페이 */
 .kakao-box {
     background-color: rgb(235, 235, 235);
-    width: 430px;
+    max-width: 320px;
+    display: block;
     margin: 30px auto;
 }
 .kakao-cont {

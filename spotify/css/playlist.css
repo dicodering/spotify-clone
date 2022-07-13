@@ -14,7 +14,6 @@ body {
 }
 
 
-
 /* 메인 content */
 .main_content h2 {
     margin-bottom: 30px;
@@ -117,4 +116,13 @@ table thead {
 .plist-box {
     margin-top: 20px;
 }
+.plist-box button {
+    margin-top: 20px;
+}
 
+
+
+/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+@media (min-width: 320px) {
+
+}

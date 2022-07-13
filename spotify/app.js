@@ -239,7 +239,7 @@ const UIController = (function() {
             const html =
             ` 
             <a href="#">
-              <div class="col-md-3 placeholder">
+              <div class="col-sm-3 placeholder" id="paddingout">
                 <img
                   src="${img}"
                   class="img-responsive"
