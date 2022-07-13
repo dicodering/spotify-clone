@@ -13,50 +13,11 @@ body {
     clear: both;
 }
 
-/* > 상단 고정 */
-.navbar-fixed-top {
-    position: fixed;
-    /* padding: 5px; */
-    padding: 10px 40px;
-}
-/* > 왼쪽 고정 메뉴 */
-.sidebar {
-    background-color: black;
-    position: fixed;
-    height: 100%;
-    padding-top: 5px;
-}
-/* > 로고 */
-.logo a {
-    display: block;
-    margin-top: 4px;
-    color: rgb(93, 216, 104);
-    margin-bottom: 20px;
-}
-/* > 각 메뉴 영역 */
-#navlink {
-    padding: 15px 10px;
-    display: block;
-}
-#navlink:hover {
-    background-color:rgb(37, 37, 37);
-    border-radius: 5px;
-}
-hr {
-    border-top: 1px solid rgb(37, 37, 37);
-}
-
-
-/* 텍스트 칼라 : 화이트 */
-.white-text {
-    color: white;
-}
-
 
 /* 메인 content */
 .main_content {
     /* padding-top: 60px; */
-    padding: 60px;
+    /* padding: 20px; */
 }
 
 
@@ -105,7 +66,7 @@ hr {
 /* 요금제 선택하기 */
 .choice-charge {
     margin-top: 30px;
-    width: 800px;
+    min-width: 320px;
     margin: auto;
 }
 /* > 상단 텍스트 */
@@ -126,7 +87,8 @@ hr {
 .charge {
     background-color: white;
     border-radius: 15px;
-    width: 540px;
+    /* width: 540px; */
+    max-width: 500px;
     margin: 40px auto 0 auto;
     padding: 30px;
     height: 470px;
@@ -189,7 +151,8 @@ hr {
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 15px;
-    width: 500px;
+    /* width: 500px; */
+    max-width: 500px;
     margin: auto;
     border-radius: 15px;
     box-shadow: 2px 2px 15px rgb(48, 48, 48);
@@ -213,7 +176,8 @@ hr {
 
 /* 지불 */
 #payment {
-    width: 500px;
+    /* width: 500px; */
+    max-width: 500px;
     margin: auto;
     border-radius: 15px;
 }
@@ -222,6 +186,7 @@ hr {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 /* 1. 신용카드 */
 /* > 카드 번호 */
 .card-num p, .card-date p, .card-security p {
@@ -278,22 +243,26 @@ hr {
     text-align: center;
     line-height: 3;
 }
-.btn-kakao {
+.btn-kakao{
     width: 150px;
-    border-radius: 30px;
+    border-radius: 5px;
     background-color: rgb(93, 216, 104);
     padding: 10px 0;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     display: block;
+}
+.btn-kakao:hover {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
 }
 
 /* 취소 */
 #cancel {
-    width: 500px;
+    max-width: 500px;
     margin: auto;
 }
 .cancel-txt {

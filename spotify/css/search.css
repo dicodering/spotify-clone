@@ -266,45 +266,43 @@ table .tableartist {
     .btn-submit {
         width: 20%;
     }
-
 }
 
 
 @media (min-width: 1020px) {
+    /* 검색하기 */
+    .btn-bar {
+        margin: 10px 0 50px 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    /* 검색하기 > input */
+    .form-group {
+        margin: 0;
+        width: 25%;
+    }
+    .search-type {
+        padding: 10px;
+        /* width: 250px; */
+        width: 100%;
+        border-radius: 4px;
+        background-color:rgb(37, 37, 37);
+        border: 1px solid rgb(185, 185, 185);
+        color: white;
+    }
 
-/* 검색하기 */
-.btn-bar {
-    margin: 10px 0 50px 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-}
-/* 검색하기 > input */
-.form-group {
-    margin: 0;
-    width: 25%;
-}
-.search-type {
-    padding: 10px;
-    /* width: 250px; */
-    width: 100%;
-    border-radius: 4px;
-    background-color:rgb(37, 37, 37);
-    border: 1px solid rgb(185, 185, 185);
-    color: white;
-}
-
-/* 검색하기 > submit버튼 */
-.btn-submit {
-    background-color:rgb(37, 37, 37);
-    border: 1px solid rgb(185, 185, 185);
-    margin-left: 10px;
-    padding: 10px;
-    /* width: 80px; */
-    width: 10%;
-}
-.btn-submit a {
-    text-decoration: none;
-    color: rgb(185, 185, 185);
-}
+    /* 검색하기 > submit버튼 */
+    .btn-submit {
+        background-color:rgb(37, 37, 37);
+        border: 1px solid rgb(185, 185, 185);
+        margin-left: 10px;
+        padding: 10px;
+        /* width: 80px; */
+        width: 10%;
+    }
+    .btn-submit a {
+        text-decoration: none;
+        color: rgb(185, 185, 185);
+    }
 }

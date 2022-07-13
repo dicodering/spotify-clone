@@ -48,17 +48,10 @@ hr {
 }
 
 /*** 상단고정 ***/
-/* 고정시키기 */
-.navbar-fixed-top{
-    position: fixed;
-    padding: 5px 30px;
-}
-
-
 /*** 메인 content ***/
 .main_content h2 {
     color: white;
-    padding: 40px 0px 10px 0px;
+    padding: 30px 0px 10px 0px;
     font-weight: bold;
     font-size: 30px;
 }
@@ -131,6 +124,9 @@ table thead {
 .placeholder{
     padding: 30px 20px;
     text-align: center;
+}
+.placeholders a {
+    text-decoration: none;
 }
 .placeholder h4 {
     color: rgba(255, 255, 255, 0.788);
@@ -243,6 +239,35 @@ table thead {
     hr {
         border-top: 1px solid rgb(37, 37, 37);
     }
+
+
+    /* 써치 > 앨범 */
+    .placeholders::after {
+        clear: both;
+        display: block;
+        content: " ";
+    }
+    .placeholders a {
+        display: block;
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .placeholder {
+        /* width: 70%; */
+        padding: 30px 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    /* 인기 아티스트 (mainpage.html) */
+    .placeholders a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        float: none;
+    }
 }
 
 
@@ -280,5 +305,13 @@ table thead {
     }
     #toggle {
         visibility: hidden;
+    }
+
+    /* 인기 아티스트 (mainpage.html) */
+    .placeholders a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        float: none;
     }
 }

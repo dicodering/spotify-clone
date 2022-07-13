@@ -13,146 +13,17 @@ body {
     clear: both;
 }
 
-/* > 상단 고정 */
-.navbar-fixed-top {
-    position: fixed;
-    /* padding: 5px; */
-    padding: 10px 40px;
-}
-/* > 왼쪽 고정 메뉴 */
-.sidebar {
-    background-color: black;
-    position: fixed;
-    height: 100%;
-    padding-top: 5px;
-}
-/* > 로고 */
-.logo a {
-    display: block;
-    margin-top: 4px;
-    color: rgb(93, 216, 104);
-    margin-bottom: 20px;
-}
-/* > 각 메뉴 영역 */
-#navlink {
-    padding: 15px 10px;
-    display: block;
-}
-#navlink:hover {
-    background-color:rgb(37, 37, 37);
-    border-radius: 5px;
-}
-hr {
-    border-top: 1px solid rgb(37, 37, 37);
-}
-
-
-/* 텍스트 칼라 : 화이트 */
-.white-text {
-    color: white;
-}
-
-/*** 상단고정 ***/
-/* 고정시키기 */
-.navbar-fixed-top{
-    position: fixed;
-    padding: 5px 30px;
-}
-/* 왼 */
-.prevbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-    margin-right: 5px;
-}
-/* 오 */
-.nextbtn {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border-style: none;
-    margin-top: 7px;
-}
-/* 프리미엄&이름 공통적용 */
-.navbar-nav>li {
-    margin-left: 5px;
-    margin-top: 7px;
-}
-.navbar-nav>li>a {
-    padding: 8px 15px;
-    font-weight: bold;
-    border-radius: 50px;
-}
-/* 프리미엄 */
-.premium{
-    background-color: rgb(211, 42, 0);
-    color: white;
-}
-.premium:hover {
-    color: rgb(211, 42, 0);
-}
-/* 내정보 이름 */
-.name {
-    background-color: black;
-    color: white;
-}
-.name:hover {
-    color: black;
-}
-
-/* 프리미엄 & 프로필 */
-.pre-pro {
-    width: 190px;
-}
-/* > 프리미엄 */
-.premium {
-    float: left;
-}
-.premium a {
-    display: block;
-    width: 100px;
-    height: 35px;
-    background-color: tomato;
-    border-radius: 18px;
-    margin-right: 10px;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
-}
-/* > 프로필 */
-.profile {
-    float: left;
-}
-.profile a {
-    display: block;
-    width: 80px;
-    height: 35px;
-    background-color: black;
-    border-radius: 18px;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
-}
-
-
 
 /*** 메인 content ***/
-.main-content {
-    padding: 80px 0 80px 50px;
-}
 /* 가입 폼 */
 .form-box {
     width: 90%;
     margin: 0 auto 20px auto;
 }
+.form-box span {
+    padding-left: 10px;
+}
+
 .form-group {
     padding-top: 50px;
 }
@@ -160,12 +31,12 @@ hr {
     height: 50px;
 }
 
-/* 폼제목 */ 
-.main-content h1 {
+/* 폼제목 */  
+.main_content .form-box h2 {
+    padding: 50px 0px 10px 0px;
+    font-weight: bold;
     font-size: 40px;
-    color: white;
-    padding-bottom: 20px;
-
+    margin-bottom: 30px;
 }
 .main-content a {
     padding-bottom: 20px;
@@ -190,4 +61,55 @@ label {
     margin-right: 10px;
     font-size: 15px;
     margin-top: 50px;
+}
+
+
+
+/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+@media (min-width: 320px) {
+    /* 메인 */
+    .main_content {
+        padding-bottom: 100px;
+    }
+
+    /* 폼 */
+    .form-group {
+        /* border: 4px solid red; */
+        padding-top: 20px;
+    }
+    .form-control {
+        height: 50px;
+    }
+    
+    /* 라벨 제목 */
+    .form-group label {
+        padding-bottom: 10px;
+        font-size: 20px; 
+        color: gray;
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* 폼 */
+    .form-group {
+        width: 100%;
+        padding: 30px 0;
+    }
+    .form-control {
+        height: 50px;
+    }
+    
+    /* 라벨 제목 */
+    .form-group label {
+        width: 20%;
+        font-size: 20px; 
+        color: gray;
+    }
+    .form-group div {
+        width: 80%;
+        font-size: 20px; 
+        color: gray;
+    }
+
 }
