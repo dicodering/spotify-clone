@@ -165,7 +165,8 @@ table thead {
 
 
 
-/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */@media (min-width: 320px) {
+/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+@media (min-width: 320px) {
     .container-fluid {
         margin-bottom: 25px;
     }
@@ -239,6 +240,11 @@ table thead {
     }
     hr {
         border-top: 1px solid rgb(37, 37, 37);
+    }
+
+    /* 모달창 */
+    .modal-content {
+        max-width: 320px;
     }
 }
 
