@@ -11,11 +11,11 @@ window.onload = function(){
         if (menuopen.style.visibility == 'hidden') {
             menuopen.style.visibility = 'visible';
             main.style.marginTop = '450px';
-            main.style.transition = 'all 200ms linear';
+            main.style.transition = 'all 300ms linear';
         } else {
             menuopen.style.visibility = 'hidden';
             main.style.marginTop = '0';
-            main.style.transition = 'all 200ms linear';
+            main.style.transition = 'all 300ms linear';
         }
     });
 }
