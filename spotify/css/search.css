@@ -157,9 +157,10 @@ table .tableartist {
     background-color: rgb(65, 64, 64);
     color: white;
     border: 0;
-    width: 75px;
+    /* width: 75px; */
+    padding: 0 20px;
     height: 30px;
-    font-size: 14px;
+    font-size: 0.8em;
 }
 /* > 곡 > 추가 버튼 */
 .add-btn {
@@ -276,6 +277,14 @@ table .tableartist {
         width: 25%;
         padding: 0;
     }
+    /* .all-btn {
+        background-color: rgb(65, 64, 64);
+        color: white;
+        border: 0;
+        width: 75px;
+        height: 30px;
+        font-size: 1.0em;
+    } */
 }
 
 
