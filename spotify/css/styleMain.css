@@ -242,89 +242,6 @@ table thead {
         border-top: 1px solid rgb(37, 37, 37);
     }
 
-    /* 모달창 */
-    .modal-content {
-        max-width: 320px;
-    }
-}
-
-
-@media (min-width: 450px) {
-    .container-fluid {
-        margin-bottom: 25px;
-    }
-    /* > 왼쪽 고정 메뉴 */
-    .sidebar {
-        background-color: black;
-        /* position: fixed; */
-        /* z-index: 4444; */
-        height: 80px;
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        /* border: 4px solid red; */
-    }
-
-    /* 숨어져있는 메뉴 내용 */
-    .menuopen {
-        /* 숨김 */
-        visibility: hidden;
-        background-color: black;
-        padding: 10px;
-        margin: 0;
-        /* border: 4px solid blue; */
-    }
-
-    #fix {
-        width: 100%;
-        padding: 5px 15px 0 15px;
-    }
-    #fix li {
-        display: flex;
-        justify-content: space-between;
-    }
-    #fix li div {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        color: rgb(93, 216, 104);
-        font-size: 25px;
-        padding-bottom: 5px;
-        box-sizing: border-box;
-    }
-    #fix li a {
-        margin-top: 10px;
-        color: rgb(93, 216, 104);
-        display: flex;
-        align-items: center;
-    }
-    #toggle {
-        visibility: visible;
-        font-size: 25px;
-    }
-    #fix li a:hover {
-        color: black;
-    }
-    /* > 로고 */
-    .logo a {
-        display: block;
-        margin-top: 4px;
-        color: rgb(93, 216, 104);
-        margin-bottom: 20px;
-    }
-    /* > 각 메뉴 영역 */
-    #navlink {
-        padding: 15px 10px;
-        display: block;
-    }
-    #navlink:hover {
-        background-color:rgb(37, 37, 37);
-        border-radius: 5px;
-    }
-    hr {
-        border-top: 1px solid rgb(37, 37, 37);
-    }
-
 
     /* 써치 > 앨범 */
     .placeholders::after {
@@ -336,6 +253,8 @@ table thead {
         display: block;
         width: 50%;
         height: auto;
+        /* 써치&앨범 */
+        /* min-height: 300px; */
         float: left;
     }
     .placeholder {
@@ -345,10 +264,17 @@ table thead {
 
 
     /* col-sm-3에 padding(좌우) : 15px 없애야 함 */
-    /* #paddingout {
-        padding: 7px;
+    #paddingout {
+        /* padding: 0; */
+        padding: 30px 6px;
         box-sizing: border-box;
-    } */
+        overflow: hidden;
+    }
+    #paddingout img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
 }
 
 
@@ -405,5 +331,16 @@ table thead {
         width: 100%;
         height: 100%;
         float: none;
+    }
+    #paddingout {
+        /* padding: 0; */
+        padding: 30px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    #paddingout .img-responsive {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 }
