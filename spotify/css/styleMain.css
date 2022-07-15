@@ -13,6 +13,10 @@ body {
     clear: both;
 }
 
+/* .block {
+    visibility: hidden;
+} */
+
 /* > 상단 고정 
 .navbar-fixed-top {
     position: fixed;

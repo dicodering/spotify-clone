@@ -4,6 +4,7 @@
  * - 입장권을 보관 해야해서 html에 만들어서 저장해놔야함
  */
 
+
 /** API 컨트롤 */
 const APIController = (function() {
     
@@ -66,7 +67,7 @@ const UIController = (function() {
         trackResult: '#trackRes',    // 곡
         albumResult: '#albumRes',    // 앨범
 
-        allSong: "#allsong" // 모두보기 버튼
+        allSong: "#allsong",        // 모두보기 버튼
     }
 
     //public methods
@@ -145,7 +146,7 @@ const UIController = (function() {
             this.clearTracks();
             // console.log(tracks);
             tracks.forEach ((v, i) => { // v는 배열의 값이고 i는 인덱스 번호
-                if (i < 10) this.createTrack(i + 1, v.name, v.album.name, v.artists[0].name, v.album.images[0].url);
+                if (i < 5) this.createTrack(i + 1, v.name, v.album.name, v.artists[0].name, v.album.images[0].url);
             });
         },
 
@@ -236,9 +237,12 @@ const UIController = (function() {
         // 상위결과 > 앨범
         createAlbum(img, album, artist) {
             const albumDiv = document.querySelector(DOMElements.albumResult);
+            // a href = "search_artist_album.html?search=${album}&type=${album}"
+            // search_artist_album.html?=albums/id=${album}/tracks
+            // search_artist_album.html?search=${album}&type=album&market=kr
             const html =
             ` 
-            <a href="#">
+            <a href="search_artist_album.html?search=${album}&type=album&market=kr" class="albumdetail">
               <div class="col-sm-3 placeholder" id="paddingout">
                 <img
                   src="${img}"
@@ -286,7 +290,9 @@ const APPController = (function(UICtrl, APICtrl) {
             common[i].style.visibility ='visible';
         }
 
-        //console.log(res);
+        console.log(res);
+
+    
         var {items} = res.albums;
         /**
          * const liverpool = { klopp : coach, yedi : {hallon : bangu}, dduni : fan2 };
@@ -358,11 +364,22 @@ const APPController = (function(UICtrl, APICtrl) {
     DOMInputs.allSong.addEventListener('click', async (e) => {
         const query = document.querySelector('#query').value;
         const type = 'allsong';
-        const url = 'search_artist_all.html?'+'search='+query+'&type='+type;
+        const url = 'search_artist_all.html?' + 'search=' + query + '&type=' + type;
         const allsong = document.querySelector('#allsong');
         allsong.href = url;
     });
 
+
+    // 앨범 클릭시 이동
+    // 동적 태그 동작 안함
+    $(document).on("click", "#albumRes > a", function() {
+        alert("gd");
+        const query = document.querySelector('#query').value;
+        const type = 'albumdetail';
+        const url = 'search_artist_album.html?' + 'search=' + query + '&type=' + type;
+        const albumdetail = document.querySelectorAll('#albumdetail');
+        albumdetail.href = url;
+    });
 
 
     return {
