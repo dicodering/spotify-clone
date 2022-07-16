@@ -43,6 +43,8 @@ const APIController = (function() {
         return data;
     }
 
+    
+
     // 클래스여서 return 따로 (위에는 하나의 정의)
     return {
         getToken() {
@@ -230,19 +232,16 @@ const UIController = (function() {
             this.clearAlbums();
             // console.log(albums);
             albums.forEach ((v, i) => {
-                if (i < 4) this.createAlbum(v.images[0].url, v.name, v.artists[0].name);
+                if (i < 4) this.createAlbum(v.images[0].url, v.name, v.artists[0].name, v.uri);
             });
         },
 
         // 상위결과 > 앨범
-        createAlbum(img, album, artist) {
+        createAlbum(img, album, artist, uri) {
             const albumDiv = document.querySelector(DOMElements.albumResult);
-            // a href = "search_artist_album.html?search=${album}&type=${album}"
-            // search_artist_album.html?=albums/id=${album}/tracks
-            // search_artist_album.html?search=${album}&type=album&market=kr
             const html =
             ` 
-            <a href="search_artist_album.html?search=${album}&type=album&market=kr" class="albumdetail">
+            <a href="search_artist_album.html?${uri}/tracks" class="albumdetail">
               <div class="col-sm-3 placeholder" id="paddingout">
                 <img
                   src="${img}"
@@ -292,7 +291,8 @@ const APPController = (function(UICtrl, APICtrl) {
 
         console.log(res);
 
-    
+        console.log("토큰" + token);
+
         var {items} = res.albums;
         /**
          * const liverpool = { klopp : coach, yedi : {hallon : bangu}, dduni : fan2 };
@@ -373,12 +373,7 @@ const APPController = (function(UICtrl, APICtrl) {
     // 앨범 클릭시 이동
     // 동적 태그 동작 안함
     $(document).on("click", "#albumRes > a", function() {
-        alert("gd");
-        const query = document.querySelector('#query').value;
-        const type = 'albumdetail';
-        const url = 'search_artist_album.html?' + 'search=' + query + '&type=' + type;
-        const albumdetail = document.querySelectorAll('#albumdetail');
-        albumdetail.href = url;
+        
     });
 
 

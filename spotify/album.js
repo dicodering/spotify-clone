@@ -28,11 +28,22 @@ const APIController = (function() {
         return data.access_token;
     }
 
-    // (추가) 앨범만 검색하도록 주소 바꿈
-    // 검색     
-    const _getSearch = async (token, query) => {
-        // console.log(query);
-        const result = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist,album,track&market=kr`, {
+    // (추가) get album tracks
+    const _getAlbumTrack = async (token, id) => {
+        const result = await fetch(`https://api.spotify.com/v1/albums/${id}/tracks`, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : 'Bearer ' + token 
+            }
+        });
+        const data = await result.json();
+        return data;
+    }
+
+    // (추추가)
+    const _getAlbumId = async (token, albumId) => {
+        const result = await fetch(`https://api.spotify.com/v1/tracks/${albumId}`, {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -49,8 +60,12 @@ const APIController = (function() {
             return _getToken();
         },
 
-        getSearch(token, query) {
-            return _getSearch(token, query);
+        getAlbumTrack(token, id) {
+            return _getAlbumTrack(token, id);
+        },
+
+        getAlbumId(token, albumId) {
+            return _getAlbumId(token, albumId);
         }
     }
 })();
@@ -82,15 +97,6 @@ const UIController = (function() {
             }
         },
 
-        // 앨범 (반복문 돌리는 코드)
-        // createAlbums(albums) {
-        //     // this.clearAlbums();
-        //     // console.log(albums);
-        //     albums.forEach ((v, i) => {
-        //         if (i < 4) this.createAlbum(v.images[0].url, v.name, v.artists[0].name);
-        //     });
-        // },
-
         // 앨범 (커버 이미지)
         createAlbumTitle(img, album) {
             const albumTitleDiv = document.querySelector(DOMElements.albumTitle);
@@ -111,29 +117,28 @@ const UIController = (function() {
         // 곡 (반복문 돌리는 코드)
         createTracks(tracks) {
             // this.clearTracks();
-            console.log(tracks);
             tracks.forEach ((v, i) => { // v는 배열의 값이고 i는 인덱스 번호
-                if (i < 20) this.createTrack(i + 1, v.name, v.album.name, v.artists[0].name, v.album.images[0].url);
+                if (i < tracks.length) this.createTrack(i + 1, v.name, v.artists[0].name);
             });
         },
 
         // 곡 (항목 추가 코드)
-        createTrack(num, title, album, artist, img) {
+        createTrack(num, title, artist) {
             const trackDiv = document.querySelector(DOMElements.trackResult);
+            // <img src="${albumImgUrl}" alt="" class="pull-left">
+            // <td id="td" class="tableartist">${albumName}</td>
             const html =
             ` 
             <tr class="trhover">
                 <td id="td">${num}</td>
                 <td id="td">
                     <div class="tdbox clearfix">
-                        <img src="${img}" alt="" class="pull-left">
                         <div class="td-text">
                             <p>${title}</p>
                             <p class="tableartist">${artist}</p>
                         </div>
                     </div>
                 </td>
-                <td id="td" class="tableartist">${album}</td>
                 <td id="td" class="clearfix">
                 <!-- 플레이리스트에 추가 -->
                 <!-- Button trigger modal -->
@@ -192,44 +197,65 @@ const UIController = (function() {
 
 /** UI & API 컨트롤 */
 const APPController = (function(UICtrl, APICtrl) {
-    // get genres on page load
-    const loadToken = async () => {
+
+    (async () => { 
         //get the token
         const token = await APICtrl.getToken();           
         //store the token onto the page
         UICtrl.storeToken(token);
-    }
-
-    (async () => { 
-        // e.preventDefault();
-        const token = UICtrl.getStoredToken().token;
 
         // 현재 url
         const url = window.location.href;
         console.log(url);
 
-        const start = url.indexOf('=');
-        const end = url.indexOf('&');
-        const str = url.substring(start+1, end);
+        const start = url.indexOf('m:');
+        const end = url.indexOf('/tracks');
+        const str = url.substring(start+2, end);
 
-        // 주소 파싱 query
-        const query = decodeURIComponent(str);
-        console.log(query);
+        // 아이디 파싱
+        const id = decodeURIComponent(str);
+        console.log(id);
 
         // 토큰 받아오는거
-        const res = await APICtrl.getSearch(token, query);
+        const res = await APICtrl.getAlbumTrack(token, id);
 
-        // var {items} = res.albums;
-        // const albums = items;
-        // const res_albums = res.albums.total; // 앨범 검색 결과 (res_albums == 0 이면 검색 결과 없음)
-    
-        var {items} = res.tracks;
-        const tracks = items;
-        const res_tracks = res.tracks.total; //곡 검색 결과
+        console.log(res);
+        console.log("토큰" + token);
+
+        var tracks = res.items;
+        // console.log(items);
+        // const tracks = res.items;
+        console.log(tracks);
+        // const res_tracks = res.tracks.total; //곡 검색 결과
+
+
+
+        // album > items[0] > name     앨범이름
+        // album > items[0] > images[1].url    앨범 url
+        var a1 = tracks[0].uri;
+        console.log(a1);
+        var start1 = a1.indexOf('k:');
+        // const end1 = url.indexOf('/tracks');
+        var albumId = a1.substring(start1+2);
+        console.log(albumId);
+
+        (async () => {
+            //get the token
+            const token = await APICtrl.getToken();           
+            //store the token onto the page
+            UICtrl.storeToken(token);
+            // 토큰 받아오는거
+            var res1 = await APICtrl.getAlbumId(token, albumId);
+            console.log(res1);
+
+            var albumName = res1.album.name;
+            var albumImgUrl = res1.album.images[1].url;
+
+            UICtrl.createAlbumTitle(albumImgUrl, albumName);
+        })();
 
 
         UICtrl.createTracks(tracks);
-        // UICtrl.createAlbumTitle(tracks);
 
     })();
 
@@ -238,7 +264,6 @@ const APPController = (function(UICtrl, APICtrl) {
     return {
         init() {
             console.log('App is starting');
-            loadToken();
         }
     }
 
