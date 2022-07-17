@@ -163,12 +163,12 @@ const UIController = (function() {
                     <div class="tdbox clearfix">
                         <img src="${img}" alt="" class="pull-left">
                         <div class="td-text">
-                            <p>${title}</p>
+                            <p id="titleLength">${title}</p>
                             <p class="tableartist">${artist}</p>
                         </div>
                     </div>
                 </td>
-                <td id="td" class="tableartist">${album}</td>
+                <td id="td" class="tableartist albumhidden">${album}</td>
                 <td id="td" class="clearfix">
                 <!-- 플레이리스트에 추가 -->
                 <!-- Button trigger modal -->

@@ -261,6 +261,8 @@ table .tableartist {
     color: white;
 }
 
+
+
 /* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
 @media (min-width: 320px) {
     /* 검색하기 */
@@ -277,14 +279,31 @@ table .tableartist {
         width: 25%;
         padding: 0;
     }
-    /* .all-btn {
-        background-color: rgb(65, 64, 64);
-        color: white;
-        border: 0;
-        width: 75px;
-        height: 30px;
-        font-size: 1.0em;
+
+    /* 앨범 제목 */
+    /* > 곡 */
+    /* table {
+        font-size: 10px;
     } */
+    /* > 곡 > 리스트 */
+    /* table .tableartist {
+        font-size: 10px;
+    }
+    .tdbox img {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+    } */
+
+    .td-text {
+        /* 한 문단 표시 (자동 줄바꿈 방지) */
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    #titleLength {
+        text-overflow: ellipsis;
+    }
 }
 
 
