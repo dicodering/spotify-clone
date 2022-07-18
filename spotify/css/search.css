@@ -263,6 +263,7 @@ table .tableartist {
 
 
 
+
 /* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
 @media (min-width: 320px) {
     /* 검색하기 */
@@ -280,31 +281,82 @@ table .tableartist {
         padding: 0;
     }
 
-    /* 앨범 제목 */
+
     /* > 곡 */
-    /* table {
-        font-size: 10px;
-    } */
+    table {
+        font-size: 12px;
+    }
     /* > 곡 > 리스트 */
-    /* table .tableartist {
+    table .tableartist {
+        color:rgb(151, 151, 151);
         font-size: 10px;
     }
     .tdbox img {
-        margin-right: 10px;
-        width: 25px;
-        height: 25px;
-    } */
+        margin-right: 20px;
+        width: 30px;
+        height: 30px;
+    }
 
-    .td-text {
-        /* 한 문단 표시 (자동 줄바꿈 방지) */
+
+    /* (추가) */
+    #plusTr .albumHidden {
+        display: none;
+    }
+    .trhover .albumhidden {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        display: none;
     }
-    #titleLength {
-        text-overflow: ellipsis;
+
+    /* (추가) */
+    .trhover #td .td-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    #flexBox {
+        display: flex;
+        justify-content: flex-start;
     }
 }
+
+
+
+@media (min-width: 768px) {
+    
+    /* (추가) */
+    #plusTr .albumHidden {
+        display: inline-block;
+    }
+    .trhover .albumhidden {
+        display: inline-block;
+    }
+
+    /* > 곡 */
+    table {
+        font-size: 14px;
+    }
+    /* > 곡 > 리스트 */
+    table .tableartist {
+        color:rgb(151, 151, 151);
+        font-size: 12px;
+    }
+    .tdbox img {
+        margin-right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* (추가) */
+    .trhover #td .td-img {
+        width: 45px;
+        height: 45px;
+        margin-right: 17px;
+    }
+}
+
 
 
 @media (min-width: 1020px) {
@@ -342,5 +394,35 @@ table .tableartist {
     .btn-submit a {
         text-decoration: none;
         color: rgb(185, 185, 185);
+    }
+
+    /* (추가) */
+    #plusTr .albumHidden {
+        display: inline-block;
+    }
+    .trhover .albumhidden {
+        display: inline-block;
+    }
+
+    /* (추가) */
+    .trhover #td .td-img {
+        width: 45px;
+        height: 45px;
+        margin-right: 17px;
+    }
+
+    /* > 곡 */
+    table {
+        font-size: 14px;
+    }
+    /* > 곡 > 리스트 */
+    table .tableartist {
+        color:rgb(151, 151, 151);
+        font-size: 12px;
+    }
+    .tdbox img {
+        margin-right: 20px;
+        width: 40px;
+        height: 40px;
     }
 }

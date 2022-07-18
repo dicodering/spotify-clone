@@ -159,9 +159,11 @@ const UIController = (function() {
             ` 
             <tr class="trhover">
                 <td id="td">${num}</td>
-                <td id="td">
-                    <div class="tdbox clearfix">
-                        <img src="${img}" alt="" class="pull-left">
+                <td id="td" class="flex-box">
+                    <div class="tdbox clearfix" id="flexBox">
+                        <div class="td-img" class="pull-left">
+                            <img src="${img}" alt="" class="pull-left">
+                        </div>
                         <div class="td-text">
                             <p id="titleLength">${title}</p>
                             <p class="tableartist">${artist}</p>
@@ -169,7 +171,7 @@ const UIController = (function() {
                     </div>
                 </td>
                 <td id="td" class="tableartist albumhidden">${album}</td>
-                <td id="td" class="clearfix">
+                <td id="td" class="clearfix pull-right">
                 <!-- 플레이리스트에 추가 -->
                 <!-- Button trigger modal -->
                 <button
