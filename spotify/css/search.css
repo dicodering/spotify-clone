@@ -123,6 +123,7 @@ a:hover {
     font-size: 15px;
 }
 
+
 /* > 곡 */
 table {
     color: white;
@@ -256,7 +257,7 @@ table .tableartist {
     height: 100%;
 }
 .media-body .media-heading {
-    padding-top: 190px;
+    padding-top: 10px;
     font-size: 28px;
     color: white;
 }
@@ -308,6 +309,7 @@ table .tableartist {
         overflow: hidden;
         display: none;
     }
+
 
     /* (추가) */
     .trhover #td .td-img {

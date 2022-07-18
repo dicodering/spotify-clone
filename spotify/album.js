@@ -107,8 +107,8 @@ const UIController = (function() {
                 <img class="coverbox-img media-object" src="${img}" alt="...">
               </a>
             </div>
-            <div class="media-body">
-              <h4 class="media-heading">${album}</h4>
+            <div class="media-body clearfix">
+              <h4 class="media-heading pull-left">${album}</h4>
             </div>
             `;
             albumTitleDiv.insertAdjacentHTML('beforeend', html);
@@ -125,8 +125,6 @@ const UIController = (function() {
         // 곡 (항목 추가 코드)
         createTrack(num, title, artist) {
             const trackDiv = document.querySelector(DOMElements.trackResult);
-            // <img src="${albumImgUrl}" alt="" class="pull-left">
-            // <td id="td" class="tableartist">${albumName}</td>
             const html =
             ` 
             <tr class="trhover">
