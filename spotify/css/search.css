@@ -74,13 +74,8 @@ a:hover {
     background-color: rgb(22, 21, 21);
     color: rgb(185, 185, 185);
 }
-/* .btn-submit a {
-    text-decoration: none;
-    color: rgb(185, 185, 185);
-} */
 
-
-/* 메인 content */
+/* 메인 컨텐츠 */
 .main_content {
 }
 
@@ -265,7 +260,7 @@ table .tableartist {
 
 
 
-/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+/* 반응형 : 모바일 */
 @media (min-width: 320px) {
     /* 검색하기 */
     .btn-bar {
@@ -299,7 +294,7 @@ table .tableartist {
     }
 
 
-    /* (추가) */
+    /* (추가) 앨범 텍스트 숨기기 */
     #plusTr .albumHidden {
         display: none;
     }
@@ -311,7 +306,7 @@ table .tableartist {
     }
 
 
-    /* (추가) */
+    /* (추가) 앨범 이미지 크기 줄이기 */
     .trhover #td .td-img {
         width: 40px;
         height: 40px;
@@ -325,15 +320,8 @@ table .tableartist {
 
 
 
+/* 반응형 : 태블릿 */
 @media (min-width: 768px) {
-    
-    /* (추가) */
-    #plusTr .albumHidden {
-        display: inline-block;
-    }
-    .trhover .albumhidden {
-        display: inline-block;
-    }
 
     /* > 곡 */
     table {
@@ -351,7 +339,15 @@ table .tableartist {
     }
 
 
-    /* (추가) */
+    /* (추가) 앨범 텍스트 나타내기 */
+    #plusTr .albumHidden {
+        display: inline-block;
+    }
+    .trhover .albumhidden {
+        display: inline-block;
+    }
+    
+    /* (추가) 앨범 이미지 크기 키우기 */
     .trhover #td .td-img {
         width: 45px;
         height: 45px;
@@ -398,15 +394,15 @@ table .tableartist {
         color: rgb(185, 185, 185);
     }
 
-    /* (추가) */
+    /* (추가) 앨범 텍스트 나타내기 */
     #plusTr .albumHidden {
         display: inline-block;
     }
     .trhover .albumhidden {
         display: inline-block;
     }
-
-    /* (추가) */
+    
+    /* (추가) 앨범 이미지 크기 키우기 */
     .trhover #td .td-img {
         width: 45px;
         height: 45px;

@@ -1,4 +1,4 @@
-// 1. nav메뉴 - 토글 버튼 클릭시 동작
+// 1. nav메뉴 - 버튼 클릭시 동작
 window.onload = function(){
     const toggle = document.querySelector("#toggle");
     const menuopen = document.querySelector(".menuopen");
@@ -19,15 +19,3 @@ window.onload = function(){
         }
     });
 }
-
-
-// 2. 변경시
-// window.onresize = function(event) {
-//     const main = document.querySelector(".col-md-10");
-//     var innerWidth = window.innerWidth;
-//     if (innerWidth <= "1020") {
-//         main.className = 'col-md-12'
-//     } else if (innerWidth > "1020") {
-//         main.className = 'col-md-10'
-//     }
-// }

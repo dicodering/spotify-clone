@@ -14,10 +14,8 @@ body {
 }
 
 
-/* 메인 content */
+/* 메인 컨텐츠 */
 .main_content {
-    /* padding-top: 60px; */
-    /* padding: 20px; */
 }
 
 
@@ -131,6 +129,7 @@ body {
 .cancel-btn:hover {
     color: rgb(93, 216, 104);
 }
+
 
 /* 요금제 소개 */
 .pay-main .page-header {
@@ -291,6 +290,8 @@ body {
 .btn-cancel {
 
 }
+
+
 /* > 모달 안내창 */
 .info-modal {
     color: white;

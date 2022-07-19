@@ -1,6 +1,6 @@
 // @Filename regex_helper.js
 // @Author 강예지
-// @Description 스포티파이 폼 안에 자바스크립트 작성 시, 호출되는 함수 모음
+// @Description 스포티파이 폼 안에 자바스크립트 작성 시 호출되는 함수 모음
 
 class RegexHelper{
   // 값 입력 안했을 시 출력

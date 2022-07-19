@@ -1,3 +1,4 @@
+// 메뉴 HTML (menubar.html) 불러오기
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     z = document.getElementsByTagName("*");

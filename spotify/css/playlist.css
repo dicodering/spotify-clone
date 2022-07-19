@@ -14,10 +14,11 @@ body {
 }
 
 
-/* 메인 content */
+/* 메인 컨텐츠 */
 .main_content h2 {
     margin-bottom: 30px;
 }
+
 /* 모달창 */
 .modal-content {
     color: white;
@@ -29,10 +30,12 @@ body {
 .modal-title {
     font-size: 25px;
 }
+
 /* > 닫기 버튼 */
 #close {
     color: white;
 }
+
 /* > 플레이리스트 버튼 */
 #playbtn {
     text-align: left;
@@ -118,11 +121,4 @@ table thead {
 }
 .plist-box button {
     margin-top: 20px;
-}
-
-
-
-/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
-@media (min-width: 320px) {
-
 }

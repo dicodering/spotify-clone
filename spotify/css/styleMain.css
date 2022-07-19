@@ -13,17 +13,6 @@ body {
     clear: both;
 }
 
-/* .block {
-    visibility: hidden;
-} */
-
-/* > 상단 고정 
-.navbar-fixed-top {
-    position: fixed;
-    /* padding: 5px;
-    padding: 10px 40px;
-/* } */
-
 
 /* > 로고 */
 .logo a {
@@ -51,8 +40,8 @@ hr {
     color: white;
 }
 
-/*** 상단고정 ***/
-/*** 메인 content ***/
+/* 상단고정 */
+/* 메인 컨텐츠 */
 .main_content {
     padding-bottom: 30px;
 }
@@ -74,6 +63,8 @@ hr {
     margin-bottom: 20px;
     background-color: palevioletred;
 }
+
+
 
 /* > 곡 */
 table {
@@ -128,6 +119,7 @@ table thead {
 }
 
 
+
 /* 인기 아티스트 (mainpage.html) */
 .placeholder{
     padding: 30px 20px;
@@ -173,21 +165,19 @@ table thead {
 
 
 
-/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+/* 반응형 : 모바일  */
 @media (min-width: 320px) {
     .container-fluid {
         margin-bottom: 25px;
     }
+
     /* > 왼쪽 고정 메뉴 */
     .sidebar {
         background-color: black;
-        /* position: fixed; */
-        /* z-index: 4444; */
         height: 80px;
         box-sizing: border-box;
         width: 100%;
         margin: 0;
-        /* border: 4px solid red; */
     }
 
     /* 숨어져있는 메뉴 내용 */
@@ -197,7 +187,6 @@ table thead {
         background-color: black;
         padding: 10px;
         margin: 0;
-        /* border: 4px solid blue; */
     }
 
     #fix {
@@ -230,6 +219,7 @@ table thead {
     #fix li a:hover {
         color: black;
     }
+
     /* > 로고 */
     .logo a {
         display: block;
@@ -237,6 +227,7 @@ table thead {
         color: rgb(93, 216, 104);
         margin-bottom: 20px;
     }
+
     /* > 각 메뉴 영역 */
     #navlink {
         padding: 15px 10px;
@@ -272,9 +263,8 @@ table thead {
 
 
     /* col-sm-3에 padding(좌우) : 15px 없애야 함 */
+    /* 앨범 */
     #paddingout {
-        /* padding: 0; */
-        /* padding: 30px 3px; */
         padding: 50px 3px;
         height: 330px;
         margin: 0 auto;
@@ -296,13 +286,16 @@ table thead {
 }
 
 
+/* 반응형 : 태블릿  */
+/* 반응형 : 태블릿  */
 @media (min-width: 768px) {
     /* 인기 아티스트 (mainpage.html) */
     .placeholders a {
         display: block;
         width: 100%;
         height: 100%;
-        float: none;
+        float
+        : none;
     }
     /* 모달창 */
     .modal-content {
@@ -318,10 +311,12 @@ table thead {
 }
 
 
+/* 반응형 : 데스크탑  */
 @media (min-width: 1020px) {
     .container-fluid {
         margin-bottom: 25px;
     }
+
     /* > 왼쪽 고정 메뉴 */
     .sidebar {
         background-color: black;
@@ -375,11 +370,7 @@ table thead {
         height: 170px;
         margin: 0 auto;
     }
-    /* #paddingout .img-responsive {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    } */
+
     /* 모달창 */
     .modal-content {
         max-width: 450px;

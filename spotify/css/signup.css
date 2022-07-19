@@ -2,10 +2,18 @@
 body {
     background-color: rgb(37, 37, 37);
 }
-/* 
+
+/* 왼쪽 정렬 */
+.pull-left { float: left; }
+.clearfix {
+    content: "";
+    display: block;
+    clear: both;
+    float: none;
+}
 
 
-/*** 메인 content ***/
+/* 메인 컨텐츠 */
 .main_content {
     padding: 60px 0;
 }
@@ -71,7 +79,7 @@ body {
     border-radius: 30px;
 }
 
-/* 게정이 있다고요? */ 
+/* 계정이 있다고요? */ 
 .sign_join {
     padding-top: 10px;
     text-align: center;
@@ -95,17 +103,10 @@ body {
     margin-bottom: 10px;
 }
 
+
 /* input & select 아웃라인 없애기 */
 input:focus { outline: none; }
 select:focus { outline: none; }
-/* 왼쪽 정렬 */
-.pull-left { float: left; }
-.clearfix {
-    content: "";
-    display: block;
-    clear: both;
-    float: none;
-}
 
 .birth {
     width: 100%;

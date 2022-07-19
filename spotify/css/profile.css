@@ -14,7 +14,7 @@ body {
 }
 
 
-/*** 메인 content ***/
+/* 메인 컨텐츠 */
 /* 가입 폼 */
 .form-box {
     width: 90%;
@@ -31,6 +31,7 @@ body {
     height: 50px;
 }
 
+
 /* 폼제목 */  
 .main_content .form-box h2 {
     padding: 50px 0px 10px 0px;
@@ -42,6 +43,8 @@ body {
     padding-bottom: 20px;
 
 }
+
+
 /* 라벨 제목 */
 label {
     font-size: 20px;
@@ -65,7 +68,7 @@ label {
 
 
 
-/* 반응형 : 모바일 -> 태블릿 -> 데스크탑순 */
+/* 반응형 : 모바일 */
 @media (min-width: 320px) {
     /* 메인 */
     .main_content {
@@ -89,6 +92,9 @@ label {
     }
 }
 
+
+
+/* 반응형 : 태블릿 */
 @media (min-width: 768px) {
 
     /* 폼 */
