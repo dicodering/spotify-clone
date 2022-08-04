@@ -558,12 +558,136 @@ APPController.init();
 ### 2.3. 곡 > [모두보기] 클릭
 * 20개 이하의 곡을 출력한 새로운 페이지
 * 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
-
+<br/>
+                  
 <details>
 <summary>javascript 코드 펼치기</summary>
 <div markdown="1">
 
 ```javascript
+/** API 컨트롤 */
+(위와 동일 생략)
+  
+/** UI Module */
+const UIController = (function() {
+
+    //object to hold references to html selectors
+    const DOMElements = {
+        hfToken: '#hidden_token',    // 토큰 저장
+        artistResult: '#artistRes',  // 아티스트
+        trackResult: '#trackRes',    // 곡
+
+        // 곡 h2
+        h2Title: '#h2Title',        // 곡
+    }
+
+    //public methods
+    return {
+        storeToken(value) {
+            document.querySelector(DOMElements.hfToken).value = value;
+        },
+
+        getStoredToken() {
+            return {
+                token: document.querySelector(DOMElements.hfToken).value
+            }
+        },
+
+        // 상위결과 > 곡 (반복문 돌리는 코드)
+        createTracks(tracks) {
+            // this.clearTracks();
+            console.log(tracks);
+            tracks.forEach ((v, i) => { // v는 배열의 값이고 i는 인덱스 번호
+                if (i < 20) this.createTrack(i + 1, v.name, v.album.name, v.artists[0].name, v.album.images[0].url);
+            });
+        },
+
+        // 상위결과 > 곡 (항목 추가 코드)
+        createTrack(num, title, album, artist, img) {
+            const trackDiv = document.querySelector(DOMElements.trackResult);
+            const html =
+            ` 
+            <tr class="trhover">
+                <td id="td">${num}</td>
+                <td id="td" class="flex-box">
+                    <div class="tdbox clearfix" id="flexBox">
+                        <div class="td-img" class="pull-left">
+                            <img src="${img}" alt="" class="pull-left">
+                        </div>
+                        <div class="td-text">
+                            <p>${title}</p>
+                            <p class="tableartist">${artist}</p>
+                        </div>
+                    </div>
+                </td>
+                <td id="td" class="tableartist albumhidden">${album}</td>
+                <td id="td" class="clearfix pull-right">
+                <!-- 플레이리스트에 추가(생략) -->
+                <!-- Button trigger modal(생략) -->
+            `;
+            trackDiv.insertAdjacentHTML('beforeend', html);
+            trackDiv.style.visibility = 'visible';
+        }
+    }
+})();
+```
+  
+```javascript
+/** UI & API 컨트롤 */
+const APPController = (function(UICtrl, APICtrl) {
+    // get genres on page load
+    const loadToken = async () => {
+        //get the token
+        const token = await APICtrl.getToken();           
+        //store the token onto the page
+        UICtrl.storeToken(token);
+    }
+
+    (async () => { 
+
+        // e.preventDefault();
+        const token = UICtrl.getStoredToken().token;
+
+        // 현재 url
+        const url = window.location.href;
+        console.log(url);
+
+        const start = url.indexOf('=');
+        const end = url.indexOf('&');
+        const str = url.substring(start+1, end);
+
+        // 주소 파싱 query
+        const query = decodeURIComponent(str);
+
+        // 토큰 받아오는거
+        const res = await APICtrl.getSearch(token, query);
+
+        // 곡 제목태그 style나타나기
+        const titleh2 = document.querySelector('.titleh2');
+        titleh2.style.visibility ='visible';
+    
+        console.log(res);
+        console.log(query);
+    
+        var {items} = res.tracks;
+        const tracks = items;
+        const res_tracks = res.tracks.total; //곡 검색 결과
+
+        UICtrl.createTracks(tracks);
+    })();
+
+    return {
+        init() {
+            console.log('App is starting');
+            loadToken();
+        }
+    }
+
+})(UIController, APIController);
+
+
+// will need to call a method to load the genres on page load
+APPController.init();
 ```
 </div>
 </details>
@@ -575,12 +699,210 @@ APPController.init();
 ### 2.4. 앨범 > [앨범] 클릭
 * 해당 앨범의 곡을 모두 출력한 새로운 페이지
 * 앨범 (섬네일, 앨범 제목, 아티스트명, 곡 제목)
-
+<br/>
+  
 <details>
 <summary>javascript 코드 펼치기</summary>
 <div markdown="1">
 
 ```javascript
+/** API 컨트롤 */
+const APIController = (function() {
+    // 앨범 트랙
+    const _getAlbumTrack = async (token, id) => {
+        const result = await fetch(`https://api.spotify.com/v1/albums/${id}/tracks`, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : 'Bearer ' + token 
+            }
+        });
+        const data = await result.json();
+        return data;
+    }
+
+    // 앨범 ID
+    const _getAlbumId = async (token, albumId) => {
+        const result = await fetch(`https://api.spotify.com/v1/tracks/${albumId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : 'Bearer ' + token 
+            }
+        });
+        const data = await result.json();
+        return data;
+    }
+
+    // 클래스여서 return 따로 (위에는 하나의 정의)
+    return {
+        getAlbumTrack(token, id) {
+            return _getAlbumTrack(token, id);
+        },
+
+        getAlbumId(token, albumId) {
+            return _getAlbumId(token, albumId);
+        }
+    }
+})();
+```
+  
+```javascript
+/** UI Module */
+const UIController = (function() {
+
+    //object to hold references to html selectors
+    const DOMElements = {
+        hfToken: '#hidden_token',    // 토큰 저장
+        artistResult: '#artistRes', // 아티스트
+        trackResult: '#trackRes',    // 곡
+        albumResult: '#albumRes',    // 앨범
+
+        albumTitle: '#coverthumb', // 앨범 커버
+    }
+
+    //public methods
+    return {
+
+        storeToken(value) {
+            document.querySelector(DOMElements.hfToken).value = value;
+        },
+
+        getStoredToken() {
+            return {
+                token: document.querySelector(DOMElements.hfToken).value
+            }
+        },
+
+        // 앨범 (커버 이미지)
+        createAlbumTitle(img, album) {
+            const albumTitleDiv = document.querySelector(DOMElements.albumTitle);
+            const html =
+            `
+            <div class="pull-left coverbox">
+              <a href="#">
+                <img class="coverbox-img media-object" src="${img}" alt="...">
+              </a>
+            </div>
+            <div class="media-body clearfix">
+              <h4 class="media-heading pull-left">${album}</h4>
+            </div>
+            `;
+            albumTitleDiv.insertAdjacentHTML('beforeend', html);
+        },
+
+        // 곡 (반복문 돌리는 코드)
+        createTracks(tracks) {
+            // this.clearTracks();
+            tracks.forEach ((v, i) => { // v는 배열의 값이고 i는 인덱스 번호
+                if (i < tracks.length) this.createTrack(i + 1, v.name, v.artists[0].name);
+            });
+        },
+
+        // 곡 (항목 추가 코드)
+        createTrack(num, title, artist) {
+            const trackDiv = document.querySelector(DOMElements.trackResult);
+            const html =
+            ` 
+            <tr class="trhover">
+                <td id="td">${num}</td>
+                <td id="td">
+                    <div class="tdbox clearfix">
+                        <div class="td-text">
+                            <p>${title}</p>
+                            <p class="tableartist">${artist}</p>
+                        </div>
+                    </div>
+                </td>
+                <td id="td" class="clearfix">
+                <!-- 플레이리스트에 추가(생략) -->
+                <!-- Button trigger modal(생략) -->
+            `;
+            trackDiv.insertAdjacentHTML('beforeend', html);
+            trackDiv.style.visibility = 'visible';
+        }
+    }
+})();
+```
+  
+```javascript
+/** UI & API 컨트롤 */
+const APPController = (function(UICtrl, APICtrl) {
+
+    (async () => { 
+        //get the token
+        const token = await APICtrl.getToken();           
+        //store the token onto the page
+        UICtrl.storeToken(token);
+
+        // 현재 url
+        const url = window.location.href;
+        console.log(url);
+
+        const start = url.indexOf('m:');
+        const end = url.indexOf('/tracks');
+        const str = url.substring(start+2, end);
+
+        // 아이디 파싱
+        const id = decodeURIComponent(str);
+        console.log(id);
+
+        // 토큰 받아오는거
+        const res = await APICtrl.getAlbumTrack(token, id);
+
+        console.log(res);
+        console.log("토큰" + token);
+
+        var tracks = res.items;
+        // console.log(items);
+        // const tracks = res.items;
+        console.log(tracks);
+        // const res_tracks = res.tracks.total; //곡 검색 결과
+
+
+
+        // album > items[0] > name     앨범이름
+        // album > items[0] > images[1].url    앨범 url
+        var a1 = tracks[0].uri;
+        console.log(a1);
+        var start1 = a1.indexOf('k:');
+        // const end1 = url.indexOf('/tracks');
+        var albumId = a1.substring(start1+2);
+        console.log(albumId);
+
+        (async () => {
+            //get the token
+            const token = await APICtrl.getToken();           
+            //store the token onto the page
+            UICtrl.storeToken(token);
+            // 토큰 받아오는거
+            var res1 = await APICtrl.getAlbumId(token, albumId);
+            console.log(res1);
+
+            var albumName = res1.album.name;
+            var albumImgUrl = res1.album.images[1].url;
+
+            UICtrl.createAlbumTitle(albumImgUrl, albumName);
+        })();
+
+
+        UICtrl.createTracks(tracks);
+
+    })();
+
+
+
+    return {
+        init() {
+            console.log('App is starting');
+        }
+    }
+
+})(UIController, APIController);
+
+
+// will need to call a method to load the genres on page load
+APPController.init();
 ```
 </div>
 </details>
