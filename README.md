@@ -177,7 +177,7 @@ https://dicodering.github.io/spotify-clone/spotify/
 [Spotify Web API](https://developer.spotify.com/documentation/web-api/reference/#/)를 통해 아티스트, 노래 제목, 앨범 등의 정보를 요청합니다.
 [참고 코드](https://github.com/awicks44/JavaScript-SpotifyAPI/blob/master/app.js)
 
-#### - 토큰 받아오기
+### 2.1. 토큰 받아오기 (공통)
 ```html
   <!-- 히든토큰 (value값에 저장해두는 것) -->
   <!-- 쉽게 꺼내 쓰기 위해서(Html에 보일 필요 없음) -->
@@ -224,26 +224,370 @@ const APIController = (function() {
     }
 })();
 ```
+<br/><br/>
 
-### 2.1. 검색하기
+### 2.2. 검색하기
 * 아티스트 (섬네일, 아티스트명)
 * 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
 * 앨범 (섬네일, 앨범 제목, 아티스트명)
+<br/>
 
+<details>
+<summary>javascript 코드 펼치기</summary>
+<div markdown="1">
+
+```javascript
+/** API 컨트롤 */
+const APIController = (function() {
+    // 토큰 받아오기 (생략)
+
+    // 검색
+    const _getSearch = async (token, query) => {
+        // console.log(query);
+        const result = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist,album,track&market=kr`, {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : 'Bearer ' + token 
+            }
+        });
+        const data = await result.json();
+        return data;
+    }
+
+    // 클래스여서 return따로 (위에는 하나의 정의)
+    return {
+        getSearch(token, query) {
+            return _getSearch(token, query);
+        }
+    }
+})();
+```
+
+```javascript
+/** UI Module */
+const UIController = (function() {
+
+    //object to hold references to html selectors
+    const DOMElements = {
+        hfToken: '#hidden_token',     // 토큰 저장
+        searchButton: '#searchBtn',   // submit 버튼
+        artistResult: '#artistRes',   // 아티스트
+        trackResult: '#trackRes',     // 곡
+        albumResult: '#albumRes',     // 앨범
+
+        allSong: "#allsong",          // 모두보기 버튼
+    }
+
+    //public methods
+    return {
+        //method to get input fields
+        inputField() {
+            return {
+                searchSubmit: document.querySelector(DOMElements.searchButton),
+                allSong: document.querySelector(DOMElements.allSong)
+            }
+        },
+
+        storeToken(value) {
+            document.querySelector(DOMElements.hfToken).value = value;
+        },
+
+        getStoredToken() {
+            return {
+                token: document.querySelector(DOMElements.hfToken).value
+            }
+        },
+
+        // 상위결과 > 아티스트
+        createArtist(img, artist) {
+
+            const artistDiv = document.querySelector(DOMElements.artistResult);
+            artistDiv.innerHTML = '';
+
+            const html =
+            `
+                <div class="col-sm-6 col-md-4 artist-img">
+                    <a href="#" id="thumbnail">
+                    <img src="${img}" alt="..." />
+                        <div class="caption">
+                            <h3>${artist}</h3>
+                            <p>아티스트</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+
+            artistDiv.insertAdjacentHTML('beforeend', html);
+        },
+
+        // 상위결과 > 노래
+        createTitle(img, title) {
+
+            const artistDiv = document.querySelector(DOMElements.artistResult);
+            artistDiv.innerHTML = '';
+
+            const html =
+            `
+                <div class="col-sm-6 col-md-4 artist-img">
+                    <a href="#" id="thumbnail">
+                    <img src="${img}" alt="..." />
+                        <div class="caption">
+                            <h3>${title}</h3>
+                            <p>곡</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+
+            artistDiv.insertAdjacentHTML('beforeend', html);
+        },
+
+        // 상위결과 > 곡 (초기화 코드)
+        clearTracks() {
+            const trackDiv = document.querySelector(DOMElements.trackResult);
+            trackDiv.innerHTML = '';
+        },
+
+        // 상위결과 > 곡 (반복문 돌리는 코드)
+        createTracks(tracks) {
+            this.clearTracks();
+            // console.log(tracks);
+            tracks.forEach ((v, i) => { // v는 배열의 값이고 i는 인덱스 번호
+                if (i < 5) this.createTrack(i + 1, v.name, v.album.name, v.artists[0].name, v.album.images[0].url);
+            });
+        },
+
+        // 상위결과 > 곡 (항목 추가 코드)
+        createTrack(num, title, album, artist, img) {
+            const trackDiv = document.querySelector(DOMElements.trackResult);
+            const html =
+            ` 
+            <tr class="trhover">
+                <td id="td">${num}</td>
+                <td id="td" class="flex-box">
+                    <div class="tdbox clearfix" id="flexBox">
+                        <div class="td-img" class="pull-left">
+                            <img src="${img}" alt="" class="pull-left">
+                        </div>
+                        <div class="td-text">
+                            <p id="titleLength">${title}</p>
+                            <p class="tableartist">${artist}</p>
+                        </div>
+                    </div>
+                </td>
+                <td id="td" class="tableartist albumhidden">${album}</td>
+                <td id="td" class="clearfix pull-right">
+                <!-- 플레이리스트에 추가(생략) -->
+                <!-- Button trigger modal(생략) -->
+            `;
+            trackDiv.insertAdjacentHTML('beforeend', html);
+        },
+
+        // 상위결과 > 앨범 (초기화 코드)
+        clearAlbums() {
+            const albumDiv = document.querySelector(DOMElements.albumResult);
+            albumDiv.innerHTML = '';
+        },
+
+        // 상위결과 > 앨범 (반복문 돌리는 코드)
+        createAlbums(albums) {
+            this.clearAlbums();
+            // console.log(albums);
+            albums.forEach ((v, i) => {
+                if (i < 4) this.createAlbum(v.images[0].url, v.name, v.artists[0].name, v.uri);
+            });
+        },
+
+        // 상위결과 > 앨범
+        createAlbum(img, album, artist, uri) {
+            const albumDiv = document.querySelector(DOMElements.albumResult);
+            const html =
+            ` 
+            <a href="search_artist_album.html?${uri}/tracks" class="albumdetail">
+              <div class="col-sm-3 placeholder" id="paddingout">
+                <img
+                  src="${img}"
+                  class="img-responsive"
+                  alt="harry placeholder thumbnail"
+                />
+                <h4 class="albumtitle">${album}</h4>
+                <span class="text-muted">${artist}</span>
+              </div>
+            </a>
+            `;
+            albumDiv.insertAdjacentHTML('beforeend', html);
+        }
+    }
+})();
+```
+
+```javascript
+/** UI & API 컨트롤 */
+const APPController = (function(UICtrl, APICtrl) {
+
+    // get input field object ref
+    const DOMInputs = UICtrl.inputField();
+    // UICtrl.inputField()의 결과 : document.querySelector('#id');
+    // -> document.querySelector('#id').addeventlistener('click', )
+
+    // get genres on page load
+    const loadToken = async () => {
+        //get the token
+        const token = await APICtrl.getToken();           
+        //store the token onto the page
+        UICtrl.storeToken(token);
+    }
+
+    // submit버튼 클릭시 동작
+    DOMInputs.searchSubmit.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const token = UICtrl.getStoredToken().token;
+        const query = document.querySelector('#query').value;
+        // 토큰 받아오는거
+        const res = await APICtrl.getSearch(token, query);
+        // 상위결과, 곡, 앨범 제목태그 style나타나기
+        const common = document.querySelectorAll('.common');
+        for (let i = 0; i < common.length; i++){
+            common[i].style.visibility ='visible';
+        }
+
+        console.log(res);
+
+        console.log("토큰" + token);
+
+        var {items} = res.albums;
+
+        const albums = items;
+        const res_albums = res.albums.total; // 앨범 검색 결과 (res_albums == 0 이면 검색 결과 없음)
+
+        var {items} = res.artists;
+        const artists = items;
+        const res_artists = res.artists.total; // 아티스트 검색 결과
+
+        var {items} = res.tracks;
+        const tracks = items;
+        const res_tracks = res.tracks.total; //곡 검색 결과
+
+        //검색결과 없을 때
+        if (res_artists == 0 && res_tracks == 0) {
+            //검색결과 없음
+        }
+        // (아티스트 검색 결과는 없는데) 곡 검색 결과가 있을 때
+        else if (res_artists == 0 && res_tracks != 0) {
+            UICtrl.createTitle(tracks[0].album.images[0].url, tracks[0].name);
+        }
+        // 아티스트 검색 결과는 있고 (곡 검색 결과는 없을 때)
+        else if (res_artists != 0 && res_tracks == 0) {
+            UICtrl.createArtist(artists[0].images[0].url, artists[0].name);
+        }
+        // 아티스트 검색 결과랑 곡 검색 결과 둘 다 있을 때
+        else {
+            // 검색어랑 아티스트와 곡 각각의 첫번째 검색 결과랑 비교
+            // 검색어랑 아티스트 검색 결과만 일치
+            if (artists[0].name == query && tracks[0].name != query) {
+                UICtrl.createArtist(artists[0].images[0].url, artists[0].name);
+            }
+            // 검색어랑 곡 검색 결과만 일치
+            else if (artists[0].name != query && tracks[0].name == query) {
+                UICtrl.createTitle(tracks[0].album.images[0].url, tracks[0].name);
+            }
+            // 검색어랑 아티스트 검색 결과와 곡 검색 결과 모두 일치
+            else {
+                if (artists[0].popularity > tracks[0].popularity) {
+                    // 상위결과 > 아티스트
+                    UICtrl.createArtist(artists[0].images[0].url, artists[0].name);
+                }
+                else {
+                    UICtrl.createTitle(tracks[0].album.images[0].url, tracks[0].name);
+                }
+            }
+        }
+
+        // 상위결과 > 곡
+        // 곡 검색 결과가 없을 땐 실행X
+        // 이전 검색 띄웠던거 지우기
+        if (res_tracks != 0) UICtrl.createTracks(tracks);
+        else UICtrl.clearTracks();
+
+        // 상위결과 > 앨범
+        // 앨범 검색 결과가 없을 땐 실행X
+        // 이전 검색 띄웠던거 지우기
+        if (res_albums != 0) UICtrl.createAlbums(albums);
+        else UICtrl.clearAlbums();  
+    });
+
+
+    // 모두보기 클릭시 동작
+    DOMInputs.allSong.addEventListener('click', async (e) => {
+        const query = document.querySelector('#query').value;
+        const type = 'allsong';
+        const url = 'search_artist_all.html?' + 'search=' + query + '&type=' + type;
+        const allsong = document.querySelector('#allsong');
+        allsong.href = url;
+    });
+
+
+    // 앨범 클릭시 이동
+    // 동적 태그 동작 안함
+    $(document).on("click", "#albumRes > a", function() {
+
+    });
+
+
+    return {
+        init() {
+            console.log('App is starting');
+            loadToken();
+        }
+    }
+
+})(UIController, APIController);
+
+
+// will need to call a method to load the genres on page load
+APPController.init();
+```
+</div>
+</details>
+  
 ![01_rest](https://user-images.githubusercontent.com/77371139/182844272-e2323df9-6a50-48b7-9642-0f2bba7731c7.png)
+<br/><br/>
+                  
+                  
+### 2.3. 곡 > [모두보기] 클릭
+* 20개 이하의 곡을 출력한 새로운 페이지
+* 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
 
+<details>
+<summary>javascript 코드 펼치기</summary>
+<div markdown="1">
 
-
-
-
-
-
+```javascript
+```
+</div>
+</details>
 
 ![02_rest](https://user-images.githubusercontent.com/77371139/182845242-f8b5f764-88b6-465d-b44f-9e315c61b87b.png)
+<br/><br/>
 
 
+### 2.4. 앨범 > [앨범] 클릭
+* 해당 앨범의 곡을 모두 출력한 새로운 페이지
+* 앨범 (섬네일, 앨범 제목, 아티스트명, 곡 제목)
+
+<details>
+<summary>javascript 코드 펼치기</summary>
+<div markdown="1">
+
+```javascript
+```
+</div>
+</details>
 
 ![03_rest](https://user-images.githubusercontent.com/77371139/182844665-d5785b65-9d9d-46c7-8f73-d3814b7b20e7.png)
+<br/><br/>
+
 
 
 
