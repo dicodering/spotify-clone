@@ -33,7 +33,7 @@ https://dicodering.github.io/spotify-clone/spotify/
   * PC는 메뉴를 왼쪽에 고정 시킴
   * TAB & MB은 드롭다운 메뉴
 
-  ```
+  ```html
   <!--왼쪽 고정 메뉴바 -->
   <div class="container-fluid ">
     <div class="row">
@@ -74,7 +74,7 @@ https://dicodering.github.io/spotify-clone/spotify/
   ```
 
 
-  ```
+  ```css
   /* 반응형 : 모바일 & 탭 공통  */
   @media (min-width: 320px) {
 
@@ -204,6 +204,7 @@ https://dicodering.github.io/spotify-clone/spotify/
   * TAB & MB은 드롭다운 메뉴
   
   ![01_rest](https://user-images.githubusercontent.com/77371139/182844272-e2323df9-6a50-48b7-9642-0f2bba7731c7.png)
+
 
 
 
