@@ -19,6 +19,10 @@ https://dicodering.github.io/spotify-clone/spotify/
 <br/><br/>
 
 ## 💡 Main Features
-### 01. 반응형 웹
-![01  주요기능  반응형_상단](https://user-images.githubusercontent.com/77371139/182649103-b4a1e9e1-ef9d-4797-926a-09b771ccc2b7.png)
+* ✅ 반응형 웹
+* ✅ REST API
+* ✅ 회원가입 유효성 검사
+
+![01_responsive](https://user-images.githubusercontent.com/77371139/182807711-334b97e3-e0fa-433b-bb0c-c3e2494812f6.png)
+
 
