@@ -1,5 +1,5 @@
 # 🟢 spotify
-스포티파이를 클론 코딩한 pc, tab, mb 반응형 포트폴리오입니다.
+스포티파이를 클론 코딩한 pc, tab, mb **반응형 포트폴리오**입니다.
 ![00  메인 페이지](https://user-images.githubusercontent.com/77371139/182634125-291ce338-de21-4b40-b426-a170cc0f47a8.png)
 <br/><br/>
 
@@ -22,16 +22,18 @@ https://dicodering.github.io/spotify-clone/spotify/
 * ✅ 반응형 웹
 * ✅ REST API
 * ✅ 회원가입 유효성 검사
-
-![01_responsive](https://user-images.githubusercontent.com/77371139/182807711-334b97e3-e0fa-433b-bb0c-c3e2494812f6.png)
 <br/><br/>
 
-## - 반응형 메뉴
-* PC는 메뉴를 왼쪽에 고정 시킴
-* TAB & MB은 드롭다운 메뉴
+  ## 1) RESPONSIVE
 
+  ![01_responsive](https://user-images.githubusercontent.com/77371139/182841712-c76e9fb6-3ab2-4b6a-96a4-67af8e64cf34.png)
 
-```
+<br/><br/>
+
+  * PC는 메뉴를 왼쪽에 고정 시킴
+  * TAB & MB은 드롭다운 메뉴
+
+  ```
 <!--왼쪽 고정 메뉴바 -->
 <div class="container-fluid ">
   <div class="row">
@@ -69,10 +71,10 @@ https://dicodering.github.io/spotify-clone/spotify/
     </div>
   </div>
 </div>
-```
+  ```
 
 
-```
+  ```
 /* 반응형 : 모바일 & 탭 공통  */
 @media (min-width: 320px) {
 
@@ -187,9 +189,32 @@ https://dicodering.github.io/spotify-clone/spotify/
         visibility: hidden;
     }
 }
-```
-![02_responsive](https://user-images.githubusercontent.com/77371139/182807922-ec02ca55-6d7a-48ce-a783-18dbfda93ae5.png)
+  ```
+  
+  ![02_responsive](https://user-images.githubusercontent.com/77371139/182841830-878130e6-2e31-404b-9bd5-afd10181505d.png)
 
-## - 반응형 메뉴
-* PC는 메뉴를 왼쪽에 고정 시킴
-* TAB & MB은 드롭다운 메뉴
+
+<br/><br/>
+
+  ## 2) REST API
+  [Spotify Web API](https://developer.spotify.com/documentation/web-api/reference/#/)를 통해 아티스트, 노래 제목, 앨범 등의 정보를 요청합니다.
+  
+  ### 2.1. 반응형 메뉴
+  * PC는 메뉴를 왼쪽에 고정 시킴
+  * TAB & MB은 드롭다운 메뉴
+  
+  ![01_rest](https://user-images.githubusercontent.com/77371139/182844272-e2323df9-6a50-48b7-9642-0f2bba7731c7.png)
+
+
+
+
+
+
+  ![02_rest](https://user-images.githubusercontent.com/77371139/182845242-f8b5f764-88b6-465d-b44f-9e315c61b87b.png)
+
+
+
+  ![03_rest](https://user-images.githubusercontent.com/77371139/182844665-d5785b65-9d9d-46c7-8f73-d3814b7b20e7.png)
+
+
+
