@@ -1021,7 +1021,7 @@ document.querySelector("#join_form").addEventListener("submit", e => {
 <br/><br/>
   
 ### 3.3. 로그인  
-![02_validation](https://user-images.githubusercontent.com/77371139/183016185-229d8e8b-53c9-4ff3-9811-63cd0e320257.png)
+![02_validation](https://user-images.githubusercontent.com/77371139/183018546-b3fc428b-c944-4dfa-8a5c-e069cc3dd3bf.png)
   
 ```javascript
 document.querySelector("#join_form").addEventListener("submit", e => {
