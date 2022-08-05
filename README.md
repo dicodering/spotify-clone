@@ -909,6 +909,140 @@ APPController.init();
 ![03_rest](https://user-images.githubusercontent.com/77371139/182844665-d5785b65-9d9d-46c7-8f73-d3814b7b20e7.png)
 <br/><br/>
 
+  
+## 3) Validation
+### 3.1. 유효성검사 (공통)
+  
+```javascript
+class RegexHelper{
+  // 값 입력 안했을 시 출력
+  value(selector, msg){
+      const field = document.querySelector(selector);
+      const content = field.value.trim();
+      if(!content){
+          alert(msg);
+          field.focus();
+          return false;
+      }
+      return true;
+  }
+
+  // 글자 수 초과 시 출력 (최대)
+  max_length(selector, len, msg){
+      const field = document.querySelector(selector);
+      const content = field.value.trim();
+      if(content.length > len){
+          alert(msg);
+          field.value = '';
+          field.focus();
+          return false;
+      }
+      return true;
+  }
+
+  // 글자 수 부족 시 출력 (최소)
+  min_length(selector, len, msg){
+      const field = document.querySelector(selector);
+      const content = field.value.trim();
+      if(content.length < len){
+          alert(msg);
+          field.value = '';
+          field.focus();
+          return false;
+      }
+      return true;
+  }
+
+  // 정규 표현식 
+  field(selector, msg, regex_expr) {
+      const field = document.querySelector(selector);
+      var src = field.value.trim(); 
+      if (!src || !regex_expr.test(src)) {
+          alert(msg);
+          field.value = '';
+          field.focus(); 
+          return false;    
+      }
+      return true; 
+  }
+
+
+  // 한글, 영어 판별
+  kor_eng(selector, msg){
+      return this.field(selector, msg, /^[ㄱ-ㅎ가-힣a-zA-Z]*$/);
+  }
+  
+  // 영문
+  eng_num(selector, msg){
+      return this.field(selector, msg, /^[a-zA-Z0-9]*$/);
+  }
+  
+  // 이메일 주소
+  email(selector, msg){
+      return this.field(selector, msg, /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i);
+  }
+}
+```
+<br/><br/>
+
+### 3.2. 회원가입
+![01_validation](https://user-images.githubusercontent.com/77371139/183015823-73151b96-d996-499c-ac98-de47b35e4401.png)
+
+```javascript
+document.querySelector("#join_form").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const regexHelper = new RegexHelper();
+
+    /** 이메일 검사 */
+    if (!regexHelper.value('#user_id', '이메일을 입력하세요.')) { return false; }
+    if (!regexHelper.email('#user_id', '이메일 주소를 다시 확인해주세요.')) { return false; }
+
+    /** 비밀번호 검사 */
+    if (!regexHelper.value('#user_pw', '비밀번호를 입력하세요.')) { return false; }
+    if (!regexHelper.min_length('#user_pw', 8, '비밀번호는 최소 8자 이상 입력 가능합니다.')) { return false; }
+    if (!regexHelper.max_length('#user_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
+
+    /** 이름 검사 */
+    if (!regexHelper.value('#user_name', '이름을 입력하세요.')) { return false; }
+    if (!regexHelper.min_length('#user_name', 2, '이름은 최소 2자 이상 입력 가능합니다.')) { return false; }
+    if (!regexHelper.max_length('#user_name', 20, '이름은 최대 20자 까지만 입력 가능합니다.')) { return false; }
+
+    /** 생년월일 검사 */
+    if (!regexHelper.value('#yy', '태어난 년도 4자리를 정확하게 입력하세요.')){ return false; }
+    if (!regexHelper.check('select[name=mm] option:checked', '태어난 월을 선택하세요.')) { return false; }
+    if (!regexHelper.value('#dd', '태어난 일(날짜)를 정확하게 입력하세요.')){ return false; }
+    if (!regexHelper.max_length('#dd', 2, '태어난 일(날짜)를 정확하게 입력하세요.')) { return false; }
+
+    // 처리 완료
+    alert("가입이 완료되었습니다.");
+});
+```
+<br/><br/>
+  
+### 3.3. 로그인  
+![02_validation](https://user-images.githubusercontent.com/77371139/183016185-229d8e8b-53c9-4ff3-9811-63cd0e320257.png)
+  
+```javascript
+document.querySelector("#join_form").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const regexHelper = new RegexHelper();
+
+    /** 이메일 검사 */
+    if (!regexHelper.value('#user_id', '이메일을 입력하세요.')) { return false; }
+    if (!regexHelper.email('#user_id', '이메일 주소를 다시 확인해주세요.')) { return false; }
+
+    /** 비밀번호 검사 */
+    if (!regexHelper.value('#user_pw', '비밀번호를 입력하세요.')) { return false; }
+    if (!regexHelper.min_length('#user_pw', 8, '비밀번호는 최소 8자 이상 입력 가능합니다.')) { return false; }
+    if (!regexHelper.max_length('#user_pw', 20, '비밀번호는 최대 20자 까지만 입력 가능합니다.')) { return false; }
+
+
+    // 처리 완료
+    alert("로그인되셨습니다.");
+});
+```
 
 
 
