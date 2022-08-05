@@ -911,7 +911,7 @@ APPController.init();
 
   
 ## 3) VALIDATION
-### 3.1. 유효성검사 (공통)
+### 3.1. 유효성 검사 (공통)
   
 ```javascript
 class RegexHelper{
