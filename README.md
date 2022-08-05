@@ -227,11 +227,10 @@ const APIController = (function() {
 <br/><br/>
 
 ### 2.2. 검색하기
-* 아티스트 (섬네일, 아티스트명)
-* 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
-* 앨범 (섬네일, 앨범 제목, 아티스트명)
-<br/>
-
+    ☑️ 아티스트 (섬네일, 아티스트명)
+    ☑️ 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
+    ☑️ 앨범 (섬네일, 앨범 제목, 아티스트명)
+    
 <details>
 <summary>javascript 코드 펼치기</summary>
 <div markdown="1">
@@ -556,9 +555,8 @@ APPController.init();
                   
                   
 ### 2.3. 곡 > [모두보기] 클릭
-* 20개 이하의 곡을 출력한 새로운 페이지
-* 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
-<br/>
+    ☑️ 20개 이하의 곡을 출력한 새로운 페이지
+    ☑️ 곡 (섬네일, 제목, 아티스트명, 앨범 제목)
                   
 <details>
 <summary>javascript 코드 펼치기</summary>
@@ -697,9 +695,17 @@ APPController.init();
 
 
 ### 2.4. 앨범 > [앨범] 클릭
-* 해당 앨범의 곡을 모두 출력한 새로운 페이지
-* 앨범 (섬네일, 앨범 제목, 아티스트명, 곡 제목)
-<br/>
+    ☑️ 해당 앨범의 곡을 모두 출력한 새로운 페이지
+    ☑️ 앨범 (섬네일, 앨범 제목, 아티스트명, 곡 제목)
+
+
+[Spotify URI 및 ID](https://developer.spotify.com/documentation/web-api/#spotify-uris-and-ids)
+- 앨범의 트랙을 받아오려면 **URI**와 **ID**라는 매개변수가 필요하다.
+- 스포티파이 URI는 클라이언트의 검색 상자에 입력하여 아티스트, 앨범 또는 트랙을 찾을 수 있는 리소스 식별자입니다.
+  - **예시** `spotify:track:6rqhFgbbKwnb9MLmUQDhG6`
+- 스포티파이 ID는 아티스트, 트랙, 앨범, 재생 목록 등에 대한 Spotify URI(위 참조) 끝에서 찾을 수 있는 base-62 식별자입니다.
+  - **예시** `6rqhFgbbKwnb9MLmUQDhG6`
+
   
 <details>
 <summary>javascript 코드 펼치기</summary>
@@ -845,30 +851,23 @@ const APPController = (function(UICtrl, APICtrl) {
 
         // 아이디 파싱
         const id = decodeURIComponent(str);
-        console.log(id);
 
         // 토큰 받아오는거
         const res = await APICtrl.getAlbumTrack(token, id);
-
-        console.log(res);
-        console.log("토큰" + token);
 
         var tracks = res.items;
         // console.log(items);
         // const tracks = res.items;
         console.log(tracks);
-        // const res_tracks = res.tracks.total; //곡 검색 결과
+        // const res_tracks = res.tracks.total; // 곡 검색 결과
 
 
 
-        // album > items[0] > name     앨범이름
-        // album > items[0] > images[1].url    앨범 url
+        // album > items[0] > name            앨범이름
+        // album > items[0] > images[1].url   앨범 이미지 url
         var a1 = tracks[0].uri;
-        console.log(a1);
         var start1 = a1.indexOf('k:');
-        // const end1 = url.indexOf('/tracks');
-        var albumId = a1.substring(start1+2);
-        console.log(albumId);
+        var albumId = a1.substring(start1+2); // 앨범 id
 
         (async () => {
             //get the token
