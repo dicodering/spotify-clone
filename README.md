@@ -910,7 +910,7 @@ APPController.init();
 <br/><br/>
 
   
-## 3) Validation
+## 3) VALIDATION
 ### 3.1. 유효성검사 (공통)
   
 ```javascript
@@ -1043,6 +1043,3 @@ document.querySelector("#join_form").addEventListener("submit", e => {
     alert("로그인되셨습니다.");
 });
 ```
-
-
-
